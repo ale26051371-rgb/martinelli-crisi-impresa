@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="it" style="background: #0A1628;">
+<!-- BUILD: iubenda-integration-v14 (iubenda Privacy + Cookie + cookie banner integrati, dominio crisidimpresa-martinelli.com nei meta) -->
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -15,12 +16,12 @@
 <link rel="canonical" href="https://www.crisidimpresa-martinelli.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.crisidimpresa-martinelli.com/">
-<meta property="og:title" content="Martinelli — Crisi d'Impresa | Ristrutturiamo il debito. Difendiamo la continuità.">
-<meta property="og:description" content="Boutique specializzata nella ristrutturazione della crisi e nella difesa della continuità aziendale. Composizione negoziata, transazione fiscale, accordi con banche e fornitori.">
+<meta property="og:title" content="Martinelli — Crisi d'Impresa">
+<meta property="og:description" content="Boutique specializzata nella ristrutturazione della crisi e nella difesa della continuità aziendale.">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Martinelli — Crisi d'Impresa | Ristrutturiamo il debito. Difendiamo la continuità.">
-<meta name="twitter:description" content="Boutique specializzata nella ristrutturazione della crisi e nella difesa della continuità aziendale. Composizione negoziata, transazione fiscale, accordi con banche e fornitori.">
+<meta name="twitter:title" content="Martinelli — Crisi d'Impresa">
+<meta name="twitter:description" content="Ristrutturiamo il debito. Difendiamo la continuità.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -462,8 +463,8 @@ body::before {
    PAGE SYSTEM
    ============================================ */
 .app { position: relative; min-height: 100vh; }
-/* page always visible */
-
+.page { display: none; }
+.page.active { display: block; animation: pageEnter 0.5s var(--ease-out); }
 @keyframes pageEnter {
   from { opacity: 0.6; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -6983,73 +6984,77 @@ body::before {
   .obs-filter { padding: 8px 14px; font-size: 11.5px; }
   .obs-closing { padding: 80px 0 100px; }
 }
-
-/* === MULTI-PAGE: page always visible === */
-.page { display: block; animation: pageEnter 0.5s var(--ease-out); }
-
-/* === PAGE TRANSITION: starts visible on load (animates OUT) === */
-.page-transition.exit-on-load {
-  transform: translateY(0);
-  pointer-events: all;
-}
-.page-transition.exit-on-load .transition-content {
-  opacity: 1;
-  transform: translateY(0);
-}
-.page-transition.exit-on-load .transition-line {
-  transform: scaleX(1);
-}
-
 </style>
+
+<!-- ============================================
+     IUBENDA — Privacy Controls & Cookie Solution
+     Caricato in <head> per garantire il blocco preventivo dei cookie
+     prima che qualsiasi altro script (Google Fonts, Analytics, etc.) si attivi.
+     ============================================ -->
+<script type="text/javascript" src="https://embeds.iubenda.com/widgets/f2745009-07f1-47ee-884b-44b10cea52b8.js"></script>
+
 </head>
+
 <body>
 
-<!-- Scroll progress -->
+<!-- ============================================
+     SCROLL PROGRESS
+     ============================================ -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<a href="#" class="floating-cta" id="floatingCta" aria-label="Prenota una consulenza">
-  <span class="floating-cta-icon">&rarr;</span>
+<!-- ============================================
+     FLOATING CTA — sticky bottom-right durante scroll
+     ============================================ -->
+<a href="#/home#contatti" class="floating-cta" id="floatingCta" data-route="home" data-anchor="contatti" aria-label="Prenota una consulenza">
+  <span class="floating-cta-icon">→</span>
   <span class="floating-cta-text">Prenota una consulenza</span>
 </a>
 
-<!-- Page transition overlay -->
-<div class="page-transition active" id="pageTransition">
+<!-- ============================================
+     PAGE TRANSITION OVERLAY
+     ============================================ -->
+<div class="page-transition" id="pageTransition">
   <div class="transition-content">
-    <div class="transition-num" id="transitionNum"></div>
-    <div class="transition-title" id="transitionTitle"></div>
+    <div class="transition-num" id="transitionNum">— 02 / 06 —</div>
+    <div class="transition-title" id="transitionTitle"><em>Studio</em></div>
     <div class="transition-line"></div>
   </div>
 </div>
 
-<!-- Navigation -->
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
 <nav class="nav theme-dark" id="nav">
-  <a href="index.html" class="nav-logo" aria-label="Martinelli — Crisi d'Impresa">
+  <a href="#/home" class="nav-logo" data-route="home" aria-label="Martinelli — Crisi d'Impresa">
     <i class="logo-full" role="img"
        style="-webkit-mask-image: url('images/mask_01.png'); mask-image: url('images/mask_01.png'); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center;"></i>
   </a>
   <ul class="nav-menu">
-    <li><a href="index.html" data-page="home" class="active">Home</a></li>
-    <li><a href="studio.html" data-page="studio">Studio</a></li>
-    <li><a href="soluzioni.html" data-page="soluzioni">Soluzioni</a></li>
-    <li><a href="metodo.html" data-page="metodo">Metodo</a></li>
-    <li><a href="casi.html" data-page="casi">Casi</a></li>
-    <li><a href="osservatorio.html" data-page="osservatorio">Osservatorio</a></li>
-    <li><a href="faq.html" data-page="faq">FAQ</a></li>
+    <li><a href="#/home" data-route="home">Home</a></li>
+    <li><a href="#/studio" data-route="studio">Studio</a></li>
+    <li><a href="#/soluzioni" data-route="soluzioni">Soluzioni</a></li>
+    <li><a href="#/metodo" data-route="metodo">Metodo</a></li>
+    <li><a href="#/casi" data-route="casi">Casi</a></li>
+    <li><a href="#/osservatorio" data-route="osservatorio">Osservatorio</a></li>
+    <li><a href="#/faq" data-route="faq">FAQ</a></li>
     <li><a href="#" class="nav-cta" id="navConsulenzaBtn">Consulenza</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle">Menu</button>
 </nav>
 
-<!-- Mobile menu -->
+<!-- ============================================
+     MOBILE MENU
+     ============================================ -->
 <div class="mobile-menu" id="mobileMenu">
   <ul class="mobile-menu-list">
-    <li><a href="index.html" data-page="home">Home <span class="mm-num">— 01</span></a></li>
-    <li><a href="studio.html" data-page="studio">Studio <span class="mm-num">— 02</span></a></li>
-    <li><a href="soluzioni.html" data-page="soluzioni">Soluzioni <span class="mm-num">— 03</span></a></li>
-    <li><a href="metodo.html" data-page="metodo">Metodo <span class="mm-num">— 04</span></a></li>
-    <li><a href="casi.html" data-page="casi">Casi <span class="mm-num">— 05</span></a></li>
-    <li><a href="osservatorio.html" data-page="osservatorio">Osservatorio <span class="mm-num">— 06</span></a></li>
-    <li><a href="faq.html" data-page="faq">FAQ <span class="mm-num">— 07</span></a></li>
+    <li><a href="#/home" data-route="home">Home <span class="mm-num">— 01</span></a></li>
+    <li><a href="#/studio" data-route="studio">Studio <span class="mm-num">— 02</span></a></li>
+    <li><a href="#/soluzioni" data-route="soluzioni">Soluzioni <span class="mm-num">— 03</span></a></li>
+    <li><a href="#/metodo" data-route="metodo">Metodo <span class="mm-num">— 04</span></a></li>
+    <li><a href="#/casi" data-route="casi">Casi <span class="mm-num">— 05</span></a></li>
+    <li><a href="#/osservatorio" data-route="osservatorio">Osservatorio <span class="mm-num">— 06</span></a></li>
+    <li><a href="#/faq" data-route="faq">FAQ <span class="mm-num">— 07</span></a></li>
+    <li><a href="#/lavora-con-noi" data-route="lavora-con-noi">Lavora con noi <span class="mm-num">— 08</span></a></li>
   </ul>
   <div class="mobile-menu-foot">
     <a href="tel:+393297575459"><strong>+39 329 757 5459</strong>Telefono diretto</a>
@@ -7057,107 +7062,15 @@ body::before {
   </div>
 </div>
 
-<!-- CTA Modal -->
-<div class="cta-modal" id="ctaModal">
-  <div class="cta-modal-bg" id="ctaModalBg"></div>
-  <div class="cta-modal-glow" id="ctaModalGlow"></div>
-  <div class="cta-modal-mesh"></div>
-  
-  <button class="cta-modal-close" id="ctaModalClose" aria-label="Chiudi">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
-  
-  <div class="cta-modal-content">
-    <div class="cta-modal-left">
-      <div class="cta-modal-eyebrow">Consulenza riservata</div>
-      <h2 class="cta-modal-title">Il primo passo<br>è un <em>colloquio</em>.</h2>
-      <p class="cta-modal-desc">Analisi preliminare gratuita. Rispondiamo entro 24 ore. Discrezione istituzionale garantita in ogni fase.</p>
-      
-      <div class="cta-modal-features">
-        <div class="cta-feature">
-          <div class="cta-feature-num">i.</div>
-          <div>
-            <div class="cta-feature-title">Riservatezza assoluta</div>
-            <div class="cta-feature-desc">Nessuna esposizione pubblica se non strettamente necessaria.</div>
-          </div>
-        </div>
-        <div class="cta-feature">
-          <div class="cta-feature-num">ii.</div>
-          <div>
-            <div class="cta-feature-title">Risponde un partner</div>
-            <div class="cta-feature-desc">Mai filtri commerciali o assistenti junior.</div>
-          </div>
-        </div>
-        <div class="cta-feature">
-          <div class="cta-feature-num">iii.</div>
-          <div>
-            <div class="cta-feature-title">Stima realistica</div>
-            <div class="cta-feature-desc">Tempi, percentuale di stralcio e probabilità di omologazione.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="cta-modal-right">
-      <form class="cta-modal-form" id="ctaModalForm">
-        <div class="cta-form-head">
-          <div class="cta-form-title">Richiedi consulenza</div>
-          <div class="cta-form-sub">— il primo colloquio è gratuito</div>
-        </div>
-        <div class="form-row-split">
-          <div class="form-row">
-            <label class="form-label" for="cm-nome">Nome</label>
-            <input type="text" class="form-input" id="cm-nome" placeholder="Mario Rossi" required>
-          </div>
-          <div class="form-row">
-            <label class="form-label" for="cm-tel">Telefono</label>
-            <input type="tel" class="form-input" id="cm-tel" placeholder="+39 ..." required>
-          </div>
-        </div>
-        <div class="form-row">
-          <label class="form-label" for="cm-email">Email</label>
-          <input type="email" class="form-input" id="cm-email" placeholder="mario.rossi@esempio.it" required>
-        </div>
-        <div class="form-row-split">
-          <div class="form-row">
-            <label class="form-label" for="cm-profilo">Profilo</label>
-            <select class="form-select" id="cm-profilo">
-              <option>Impresa</option>
-              <option>Professionista</option>
-              <option>Persona fisica</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label class="form-label" for="cm-esp">Esposizione</label>
-            <select class="form-select" id="cm-esp">
-              <option>Fino a € 100K</option>
-              <option>€ 100K — 500K</option>
-              <option>€ 500K — 2M</option>
-              <option>Oltre € 2M</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <label class="form-label" for="cm-msg">Descrizione</label>
-          <textarea class="form-textarea" id="cm-msg" placeholder="Tipologia debiti, urgenze..."></textarea>
-        </div>
-        <button class="cta-form-submit" type="submit">
-          Invia richiesta
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
-      <div class="cta-form-success" id="ctaFormSuccess">
-        <div class="cta-form-success-icon">✓</div>
-        <h3>Richiesta ricevuta.</h3>
-        <p>Un partner ti contatterà entro 24 ore.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Page content -->
+<!-- ============================================
+     APP - PAGES CONTAINER
+     ============================================ -->
 <main class="app" id="app">
-<section class="page active" data-page="home" data-theme="dark">
+
+<!-- ==========================================
+     HOME PAGE
+     ========================================== -->
+<section class="page" data-page="home" data-theme="dark">
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -7211,7 +7124,7 @@ body::before {
           <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
-      <a href="metodo.html" class="hero-secondary" data-page="metodo">Scopri il metodo</a>
+      <a href="#/metodo" class="hero-secondary" data-route="metodo">Scopri il metodo</a>
     </div>
   </div>
   
@@ -7337,16 +7250,16 @@ body::before {
 <div class="marquee marquee-press" aria-label="Le testate e le riviste su cui pubblichiamo">
   <div class="marquee-track">
     <span class="marquee-item">
-      <a href="osservatorio.html" data-page="osservatorio" class="press-logo is-italiaoggi" aria-label="ItaliaOggi">Italia<em>Oggi</em></a>
+      <a href="#/osservatorio" data-route="osservatorio" class="press-logo is-italiaoggi" aria-label="ItaliaOggi">Italia<em>Oggi</em></a>
     </span>
     <span class="marquee-item">
-      <a href="osservatorio.html" data-page="osservatorio" class="press-logo is-italiaoggi" aria-label="ItaliaOggi 7">Italia<em>Oggi</em><sup>7</sup></a>
+      <a href="#/osservatorio" data-route="osservatorio" class="press-logo is-italiaoggi" aria-label="ItaliaOggi 7">Italia<em>Oggi</em><sup>7</sup></a>
     </span>
     <span class="marquee-item">
-      <a href="osservatorio.html" data-page="osservatorio" class="press-logo is-capital" aria-label="Capital — Class Editori">Capital<small>Class Editori</small></a>
+      <a href="#/osservatorio" data-route="osservatorio" class="press-logo is-capital" aria-label="Capital — Class Editori">Capital<small>Class Editori</small></a>
     </span>
     <span class="marquee-item">
-      <a href="osservatorio.html" data-page="osservatorio" class="press-logo is-ius" aria-label="IUS Lefebvre Giuffrè">
+      <a href="#/osservatorio" data-route="osservatorio" class="press-logo is-ius" aria-label="IUS Lefebvre Giuffrè">
         <span class="ius-mark">IUS</span>
         <span class="ius-text"><strong>Lefebvre Giuffrè</strong><small>Editoriale Scientifica</small></span>
       </a>
@@ -7509,7 +7422,7 @@ body::before {
       </div>
     </div>
     <div class="urgency-cta">
-      <a href="#" class="open-consulenza" class="btn btn-primary" data-page="home">Agisci ora — prenota il primo colloquio <span class="btn-arrow">→</span></a>
+      <a href="#/home#contatti" class="btn btn-primary" data-route="home" data-anchor="contatti">Agisci ora — prenota il primo colloquio <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -7558,7 +7471,7 @@ body::before {
 
     <!-- Articoli in primo piano -->
     <div class="observatory-feed reveal">
-      <a href="osservatorio.html" data-page="osservatorio" class="observatory-feed-card">
+      <a href="#/osservatorio" data-route="osservatorio" class="observatory-feed-card">
         <div class="observatory-feed-clip">
           <img src="images/article_11maggio.jpg" alt="Risanamento, 10 errori da evitare — ItaliaOggi7 11 maggio 2026" loading="lazy">
         </div>
@@ -7569,7 +7482,7 @@ body::before {
         <h4 class="observatory-feed-title">Risanamento, 10 errori da evitare. Un piano serio deve dimostrare come l'utile sarà prodotto.</h4>
       </a>
 
-      <a href="osservatorio.html" data-page="osservatorio" class="observatory-feed-card">
+      <a href="#/osservatorio" data-route="osservatorio" class="observatory-feed-card">
         <div class="observatory-feed-clip">
           <img src="images/article_9maggio.jpg" alt="Più ricchi ma risparmiano meno — ItaliaOggi 9 maggio 2026" loading="lazy">
         </div>
@@ -7580,7 +7493,7 @@ body::before {
         <h4 class="observatory-feed-title">Più ricchi ma risparmiano meno. Il dato più interessante è il boom del risparmio gestito.</h4>
       </a>
 
-      <a href="osservatorio.html" data-page="osservatorio" class="observatory-feed-card">
+      <a href="#/osservatorio" data-route="osservatorio" class="observatory-feed-card">
         <div class="observatory-feed-clip">
           <img src="images/img_02.jpg" alt="Crisi d'impresa, il fisco punta sul risanamento — ItaliaOggi 17 aprile 2026" loading="lazy">
         </div>
@@ -7603,7 +7516,7 @@ body::before {
 
     <div class="observatory-cta reveal">
       <p class="observatory-cta-text">Sedici articoli su quotidiani nazionali, cinque contributi scientifici. <em>Un archivio aggiornato.</em></p>
-      <a href="osservatorio.html" data-page="osservatorio" class="btn btn-navy">Vai all'Osservatorio <span class="btn-arrow">→</span></a>
+      <a href="#/osservatorio" data-route="osservatorio" class="btn btn-navy">Vai all'Osservatorio <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -8125,7 +8038,7 @@ body::before {
     </div>
     
     <div style="text-align: center; margin-top: 60px;">
-      <a href="casi.html" class="btn btn-navy" data-page="casi">Approfondisci le tipologie <span class="btn-arrow">→</span></a>
+      <a href="#/casi" class="btn btn-navy" data-route="casi">Approfondisci le tipologie <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -8221,7 +8134,7 @@ body::before {
       </div>
     </div>
     <div style="text-align: center; margin-top: 60px;">
-      <a href="faq.html" class="btn btn-ghost light" data-page="faq">Tutte le domande frequenti <span class="btn-arrow">→</span></a>
+      <a href="#/faq" class="btn btn-ghost light" data-route="faq">Tutte le domande frequenti <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -8312,10 +8225,1168 @@ body::before {
 <!-- ==========================================
      STUDIO PAGE
      ========================================== -->
+<section class="page" data-page="studio" data-theme="light">
+
+<section class="studio-hero">
+  <div class="studio-hero-ornament"></div>
+  <div class="container">
+    <div class="section-label reveal">Chi siamo <span class="section-label-num">— 02 / 07</span></div>
+    <div class="studio-hero-grid">
+      <h1 class="studio-hero-title reveal">Un'unica<br>materia.<br>La <em>crisi</em><br>d'impresa.</h1>
+      <div class="studio-hero-side reveal">
+        <p>Martinelli Crisi d'Impresa nasce come boutique dedicata esclusivamente alla ristrutturazione della crisi e alla difesa della continuità aziendale. Non facciamo altro.</p>
+        <p>Questa specializzazione verticale ci permette di padroneggiare il Codice della Crisi d'Impresa nella sua totalità, dalle procedure volontarie a quelle giudiziali, e di affrontare dossier complessi con la sicurezza che deriva dalla pratica quotidiana.</p>
+        <p>Ogni incarico viene seguito direttamente dai partner — niente delega, niente passaggi intermedi. Il cliente parla sempre con chi decide.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section class="studio-pillars">
+  <div class="container">
+    <h2 class="studio-pillars-title reveal">Cinque pilastri.<br>Un'unica <em>postura professionale</em>.</h2>
+    <div class="pillars-grid reveal-stagger">
+      <div class="pillar">
+        <div class="pillar-num">i.</div>
+        <div class="pillar-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="3" fill="currentColor" stroke="none"/></svg></div>
+        <h3 class="pillar-title">Specializzazione verticale</h3>
+        <p class="pillar-body">Facciamo solo questo. Non adempimenti ordinari, non consulenza generalista: esclusivamente ristrutturazione della crisi.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">ii.</div>
+        <div class="pillar-icon"><svg viewBox="0 0 48 48"><path d="M8 24 L24 8 L40 24 L24 40 Z"/><path d="M16 24 L24 16 L32 24 L24 32 Z"/></svg></div>
+        <h3 class="pillar-title">Approccio integrato</h3>
+        <p class="pillar-body">Competenze giuridiche, tributarie e finanziarie lavorano sullo stesso tavolo. Nessun rimbalzo tra professionisti.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">iii.</div>
+        <div class="pillar-icon"><svg viewBox="0 0 48 48"><path d="M8 32 L18 22 L26 28 L40 14"/><path d="M32 14 L40 14 L40 22"/></svg></div>
+        <h3 class="pillar-title">Taglio strategico</h3>
+        <p class="pillar-body">Non ci limitiamo a eseguire procedure: costruiamo la strategia più efficace valutando scenari e probabilità prima di muovere il primo passo.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">iv.</div>
+        <div class="pillar-icon"><svg viewBox="0 0 48 48"><rect x="8" y="12" width="32" height="24"/><path d="M8 20 L40 20"/><path d="M14 28 L20 28 M24 28 L34 28"/></svg></div>
+        <h3 class="pillar-title">Prova concreta</h3>
+        <p class="pillar-body">Numeri, dossier, omologazioni. Quello che diciamo è verificabile: tassi di successo documentati, tempistiche rispettate.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">v.</div>
+        <div class="pillar-icon"><svg viewBox="0 0 48 48"><path d="M24 8 L32 16 L32 28 C32 34 28 38 24 38 C20 38 16 34 16 28 L16 16 Z"/><path d="M20 24 L24 28 L30 20"/></svg></div>
+        <h3 class="pillar-title">Riservatezza assoluta</h3>
+        <p class="pillar-body">La crisi è materia delicata. Ogni fase viene trattata con discrezione istituzionale, nessuna esposizione pubblica se non necessaria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="studio-quote">
+  <div class="container reveal">
+    <blockquote class="studio-quote-text">Non siamo uno studio di consulenza generalista: la crisi d'impresa è la nostra unica materia. È ciò che ci permette di fare la differenza quando sembra non esserci via d'uscita.</blockquote>
+    <div class="studio-quote-author"><em>— Martinelli</em> i partner fondatori</div>
+  </div>
+</section>
+
+<section class="studio-team">
+  <div class="container">
+    <div class="studio-team-header reveal">
+      <h2 class="studio-team-title">Il <em>tavolo di regia</em>.</h2>
+      <div style="max-width: 380px; color: var(--ink-soft); font-size: 15px; line-height: 1.7;">Lo studio è seguito direttamente dai partner. Niente delega, niente passaggi intermedi: il cliente parla sempre con chi prende le decisioni.</div>
+    </div>
+    
+    <div class="team-partner reveal">
+      <div class="team-partner-aside">
+        <div class="team-partner-photo">
+          <span class="team-partner-photo-mark">TM</span>
+        </div>
+        <h3 class="team-partner-name">Tiziana Martinelli</h3>
+        <p class="team-partner-role">Founder & Ceo</p>
+      </div>
+
+      <div class="team-partner-bio">
+        <p>Tiziana Martinelli vanta un'esperienza professionale ultraquarantennale maturata nell'ambito della consulenza fiscale, societaria ed economico-aziendale, affiancando nel corso della propria carriera società di capitali, società di persone ed imprenditori nella gestione strategica degli aspetti contabili, tributari e finanziari d'impresa.</p>
+
+        <p>Dal 1985 opera con continuità nel settore della <em>tax compliance</em> e dell'analisi di bilancio, sviluppando una competenza altamente specialistica nella lettura, interpretazione e gestione dei dati economico-patrimoniali aziendali, con particolare attenzione agli equilibri finanziari, alla sostenibilità economica ed alla corretta pianificazione fiscale.</p>
+
+        <p>Nel corso della propria attività professionale ha seguito realtà imprenditoriali appartenenti a differenti settori produttivi, maturando una profonda esperienza nella consulenza societaria ordinaria e straordinaria, nella predisposizione ed analisi dei bilanci d'esercizio, nella governance amministrativa e nel controllo economico-gestionale.</p>
+
+        <p>La sua attività si distingue per <em>rigore tecnico, affidabilità professionale e capacità di coniugare precisione contabile, visione strategica</em> e conoscenza approfondita della normativa fiscale e societaria.</p>
+
+        <p>All'interno di <em>Martinelli Crisi d'Impresa</em> apporta una competenza trasversale e di elevato profilo nella gestione delle dinamiche economico-finanziarie aziendali, rappresentando un punto di riferimento nell'analisi della continuità d'impresa, nella pianificazione fiscale e nei percorsi di riequilibrio e risanamento societario.</p>
+      </div>
+    </div>
+
+    <div class="team-partner reveal">
+      <div class="team-partner-aside">
+        <div class="team-partner-photo">
+          <span class="team-partner-photo-mark">FS</span>
+        </div>
+        <h3 class="team-partner-name">Francesco Sbraletta</h3>
+        <p class="team-partner-role">Head of Restructuring Department</p>
+      </div>
+
+      <div class="team-partner-bio">
+        <p>Dott. Francesco Sbraletta è Head of Restructuring Department di <em>Martinelli – Crisi d'Impresa</em>, realtà specializzata nella gestione e nel risanamento delle situazioni di crisi aziendale, nella ristrutturazione del debito e nelle operazioni straordinarie d'impresa.</p>
+
+        <p>Professionista con consolidata esperienza nell'ambito della crisi d'impresa e della consulenza strategico-finanziaria, assiste società, imprenditori e gruppi aziendali nella predisposizione di piani di risanamento, procedure di composizione negoziata della crisi, accordi con il ceto creditorio, operazioni di ristrutturazione bancaria e fiscale, nonché nelle attività di analisi economico-finanziaria e valutazione d'azienda.</p>
+
+        <p>Nel corso della propria attività ha maturato una significativa esperienza nella gestione di tavoli negoziali complessi con istituti di credito, servicer, Agenzia delle Entrate, INPS e principali stakeholder aziendali, supportando le imprese nella continuità aziendale e nella salvaguardia del valore industriale.</p>
+
+        <p>La sua principale area di ricerca e specializzazione scientifica è il <em>diritto della crisi d'impresa e dell'insolvenza</em>, con particolare attenzione agli strumenti di ristrutturazione previsti dal Codice della Crisi, alla composizione negoziata, alle procedure di continuità aziendale, alle transazioni fiscali e ai modelli di risanamento dell'impresa in difficoltà.</p>
+
+        <p>Svolge attività di ricerca continuativa e di approfondimento scientifico sul tema della crisi d'impresa, partecipando attivamente al dibattito accademico e professionale relativo all'evoluzione della normativa concorsuale e agli strumenti di turnaround aziendale. È autore di numerosi paper scientifici, contributi specialistici e articoli tecnici dedicati al diritto della crisi, alla ristrutturazione del debito e alle dinamiche economico-finanziarie delle imprese in situazione di distress.</p>
+
+        <p>L'approccio professionale di Francesco Sbraletta coniuga <em>rigore accademico, visione strategica e capacità negoziale</em>, offrendo assistenza altamente specializzata a imprese, professionisti e investitori nella gestione delle situazioni di crisi e nei percorsi di risanamento aziendale.</p>
+      </div>
+    </div>
+
+    <div class="team-contact-note reveal">
+      <p>Per richieste dirette ai professionisti che gestiscono la materia, scrivici dal form di contatto: ti rispondiamo entro 24 ore con il referente di riferimento.</p>
+      <a href="#/home#contatti" class="btn btn-navy" data-route="home" data-anchor="contatti">Contatta lo studio <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-block">
+  <div class="container reveal">
+    <h2 class="cta-title">Vuoi parlare <em>con noi</em>?</h2>
+    <p class="cta-sub">Colloquio preliminare riservato, senza impegno. Risponde sempre un partner, mai un filtro commerciale.</p>
+    <a href="#/home#contatti" class="btn btn-primary" data-route="home" data-anchor="contatti">Richiedi un incontro <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+</section>
+<!-- /STUDIO -->
+
+<!-- ==========================================
+     SOLUZIONI PAGE
+     ========================================== -->
+<section class="page" data-page="soluzioni" data-theme="dark">
+
+<section class="sol-hero">
+  <div class="container">
+    <div class="section-label reveal" style="color: var(--stone-light);">Soluzioni <span class="section-label-num">— 03 / 07</span></div>
+    <h1 class="sol-hero-title reveal">Sei strumenti.<br>Una <em>strategia</em>.</h1>
+    <p class="sol-hero-sub reveal">Il Codice della Crisi d'Impresa offre strumenti potenti ma complessi. Per ogni situazione scegliamo quello più efficace — spesso in combinazione — per proteggere patrimonio, continuità e reputazione.</p>
+  </div>
+</section>
+
+<section class="solutions-list">
+  <div class="solution-row">
+    <div class="solution-row-num">I</div>
+    <div><h3 class="solution-row-title">Composizione negoziata</h3></div>
+    <p class="solution-row-desc">Procedura volontaria e riservata: sospensione dei pagamenti, trattativa con i creditori assistita da un esperto indipendente.</p>
+    <div class="solution-row-arrow">→</div>
+  </div>
+  <div class="solution-row">
+    <div class="solution-row-num">II</div>
+    <div><h3 class="solution-row-title">Transazione fiscale</h3></div>
+    <p class="solution-row-desc">Riduzione e dilazione del debito tributario e contributivo, anche con cartelle significative o contenzioso in corso.</p>
+    <div class="solution-row-arrow">→</div>
+  </div>
+  <div class="solution-row">
+    <div class="solution-row-num">III</div>
+    <div><h3 class="solution-row-title">Accordi con banche</h3></div>
+    <p class="solution-row-desc">Moratorie, rimodulazione piani di ammortamento, saldi a stralcio, negoziazione con servicer NPL e UTP.</p>
+    <div class="solution-row-arrow">→</div>
+  </div>
+  <div class="solution-row">
+    <div class="solution-row-num">IV</div>
+    <div><h3 class="solution-row-title">Accordi con fornitori</h3></div>
+    <p class="solution-row-desc">Ristrutturazione del debito commerciale con rispetto degli equilibri di filiera e tutela delle relazioni strategiche.</p>
+    <div class="solution-row-arrow">→</div>
+  </div>
+  <div class="solution-row">
+    <div class="solution-row-num">V</div>
+    <div><h3 class="solution-row-title">Piani di risanamento</h3></div>
+    <p class="solution-row-desc">Piani attestati ex art. 56 CCII e accordi di ristrutturazione: strumenti giudiziali e stragiudiziali con omologazione.</p>
+    <div class="solution-row-arrow">→</div>
+  </div>
+  <div class="solution-row">
+    <div class="solution-row-num">VI</div>
+    <div><h3 class="solution-row-title">Sovraindebitamento</h3></div>
+    <p class="solution-row-desc">Concordato minore, ristrutturazione del consumatore, esdebitazione del soggetto incapiente.</p>
+    <div class="solution-row-arrow">→</div>
+  </div>
+</section>
+
+<section class="cta-block" style="background: var(--navy-deep); color: var(--ivory);">
+  <div class="container reveal">
+    <h2 class="cta-title" style="color: var(--ivory);">Non sai <em>quale scegliere</em>?</h2>
+    <p class="cta-sub" style="color: rgba(245,241,234,0.72);">Dopo l'analisi del dossier indichiamo lo strumento — o la combinazione di strumenti — più efficace per la tua situazione specifica.</p>
+    <a href="#/home#contatti" class="btn btn-primary" data-route="home" data-anchor="contatti">Parliamone insieme <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+</section>
+<!-- /SOLUZIONI -->
+
+<!-- ==========================================
+     METODO PAGE
+     ========================================== -->
+<section class="page" data-page="metodo" data-theme="light">
+
+<section class="method-hero">
+  <div class="container">
+    <div class="section-label reveal">Metodo di lavoro <span class="section-label-num">— 04 / 07</span></div>
+    <h1 class="method-hero-title reveal">Cinque fasi.<br><em>Zero improvvisazione.</em></h1>
+    <p class="method-hero-sub reveal">Ogni incarico segue una sequenza rigorosa. Dalla prima analisi all'attuazione del piano, il cliente sa sempre cosa sta accadendo, perché, e qual è il prossimo passo.</p>
+  </div>
+</section>
+
+<section class="method-phases">
+  <div class="container">
+    <div class="method-phase reveal">
+      <div class="method-phase-grid">
+        <div class="method-phase-label">— Fase 01</div>
+        <h3 class="method-phase-title"><em>Analisi.</em></h3>
+        <div class="method-phase-body">
+          <p><strong>Lettura integrale della posizione debitoria.</strong></p>
+          <p>Ricognizione completa di esposizioni fiscali, bancarie, commerciali e giudiziali. Verifica di prescrizioni, vizi degli atti, possibili nullità.</p>
+          <p>Nessun intervento prima di aver compreso fino in fondo il quadro.</p>
+        </div>
+        <div class="method-phase-visual">
+          <div class="method-phase-visual-title">— Attività tipiche</div>
+          <ul>
+            <li>Estratto di ruolo AdE-R</li>
+            <li>Verifica CRIF e Centrale Rischi</li>
+            <li>Ricognizione contratti bancari</li>
+            <li>Analisi contenziosi pendenti</li>
+            <li>Audit dei rapporti di fornitura</li>
+            <li>Controllo prescrizioni</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="method-phase reveal">
+      <div class="method-phase-grid">
+        <div class="method-phase-label">— Fase 02</div>
+        <h3 class="method-phase-title"><em>Diagnosi.</em></h3>
+        <div class="method-phase-body">
+          <p><strong>Valutazione della sostenibilità e dei rischi.</strong></p>
+          <p>Analisi della continuità aziendale, dei flussi di cassa prospettici e dei rischi di azioni esecutive.</p>
+          <p>Definiamo cosa è salvabile, cosa va negoziato e cosa va protetto con urgenza.</p>
+        </div>
+        <div class="method-phase-visual">
+          <div class="method-phase-visual-title">— Output</div>
+          <ul>
+            <li>Cash-flow prospettico 36 mesi</li>
+            <li>Indici di crisi ex CCII</li>
+            <li>Mappa del rischio esecutivo</li>
+            <li>Valutazione continuità operativa</li>
+            <li>Gerarchia dei creditori</li>
+            <li>Scenari di uscita</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="method-phase reveal">
+      <div class="method-phase-grid">
+        <div class="method-phase-label">— Fase 03</div>
+        <h3 class="method-phase-title"><em>Strategia.</em></h3>
+        <div class="method-phase-body">
+          <p><strong>Costruzione del percorso personalizzato.</strong></p>
+          <p>Scelta dello strumento — o della combinazione di strumenti — giuridici più efficace.</p>
+          <p>Presentazione al cliente di scenari con probabilità, tempi, costi e risultato atteso per ogni opzione.</p>
+        </div>
+        <div class="method-phase-visual">
+          <div class="method-phase-visual-title">— Deliverable</div>
+          <ul>
+            <li>Piano strategico documentato</li>
+            <li>Scenari A/B/C a confronto</li>
+            <li>Timeline di esecuzione</li>
+            <li>Stima costi e tempistiche</li>
+            <li>Analisi fiscale dell'operazione</li>
+            <li>Impatto su continuità</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="method-phase reveal">
+      <div class="method-phase-grid">
+        <div class="method-phase-label">— Fase 04</div>
+        <h3 class="method-phase-title"><em>Negoziazione.</em></h3>
+        <div class="method-phase-body">
+          <p><strong>Trattativa con creditori e controparti.</strong></p>
+          <p>Conduzione diretta delle negoziazioni con banche, AdE-R, fornitori e servicer. Preparazione e deposito degli atti davanti al tribunale competente.</p>
+        </div>
+        <div class="method-phase-visual">
+          <div class="method-phase-visual-title">— Interlocutori</div>
+          <ul>
+            <li>Agenzia delle Entrate</li>
+            <li>Ceto bancario</li>
+            <li>Servicer NPL / UTP</li>
+            <li>Fornitori strategici</li>
+            <li>Tribunale competente</li>
+            <li>Esperto indipendente</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="method-phase reveal">
+      <div class="method-phase-grid">
+        <div class="method-phase-label">— Fase 05</div>
+        <h3 class="method-phase-title"><em>Attuazione.</em></h3>
+        <div class="method-phase-body">
+          <p><strong>Esecuzione, monitoraggio, ripartenza.</strong></p>
+          <p>Controllo dell'adempimento del piano, gestione dei rapporti con i creditori nel post-accordo, supporto alla ricostruzione finanziaria.</p>
+        </div>
+        <div class="method-phase-visual">
+          <div class="method-phase-visual-title">— Follow-up</div>
+          <ul>
+            <li>Monitoraggio scadenze piano</li>
+            <li>Reportistica periodica</li>
+            <li>Gestione imprevisti</li>
+            <li>Interlocuzione post-accordo</li>
+            <li>Supporto finanziario</li>
+            <li>Consulenza ripartenza</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block">
+  <div class="container reveal">
+    <h2 class="cta-title">Vuoi sapere <em>da dove partire</em>?</h2>
+    <p class="cta-sub">La fase 01 — l'analisi — è sempre il punto di partenza. Prenota un colloquio per avviarla sul tuo dossier.</p>
+    <a href="#/home#contatti" class="btn btn-primary" data-route="home" data-anchor="contatti">Avvia la tua analisi <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+</section>
+<!-- /METODO -->
+
+<!-- ==========================================
+     CASI PAGE
+     ========================================== -->
+<section class="page" data-page="casi" data-theme="dark">
+
+<section class="cases-hero">
+  <div class="container">
+    <div class="section-label reveal" style="color: var(--stone-light);">Tipologie di intervento <span class="section-label-num">— 05 / 07</span></div>
+    <div class="cases-hero-grid">
+      <h1 class="cases-hero-title reveal">Casistica<br>e <em>strategie tipo</em>.</h1>
+      <p class="cases-hero-side reveal">Tre macro-tipologie di intervento ricorrenti. Per ogni profilo, lo strumento o la combinazione di strumenti giuridici che applichiamo, con percentuali di stralcio teoriche ottenibili dalla normativa vigente.</p>
+    </div>
+    <div class="cases-big-numbers reveal-stagger">
+      <div class="big-number">
+        <div class="big-number-label">Soglia normativa</div>
+        <div class="big-number-value"><em>fino a</em> 80<span style="color: var(--champagne);">%</span></div>
+        <div class="big-number-desc">Riduzione del debito legalmente ottenibile via transazione fiscale e accordi</div>
+      </div>
+      <div class="big-number">
+        <div class="big-number-label">Strumenti CCII</div>
+        <div class="big-number-value">6 <em>vie</em></div>
+        <div class="big-number-desc">Procedure giudiziali e stragiudiziali per gestire la crisi a 360°</div>
+      </div>
+      <div class="big-number">
+        <div class="big-number-label">Riservatezza</div>
+        <div class="big-number-value">100<span style="color: var(--champagne);">%</span></div>
+        <div class="big-number-desc">La composizione negoziata non comporta pubblicità nei registri pubblici</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cases-typologies">
+  <div class="container">
+    <div class="typologies-intro reveal">
+      <p class="typology-disclaimer">Lo studio è in fase di consolidamento. Le tipologie di intervento descritte sono basate sugli strumenti del Codice della Crisi d'Impresa e sulla normativa vigente. Casistica documentata pubblicabile dopo i primi dossier completati.</p>
+    </div>
+    
+    <div class="typologies-grid reveal-stagger">
+      
+      <article class="typology">
+        <div class="typology-meta">
+          <span class="typology-num">— Tipologia 01</span>
+          <span class="typology-target">Imprese</span>
+        </div>
+        <h3 class="typology-title">Continuità aziendale<br>con <em>stralcio fiscale</em>.</h3>
+        <p class="typology-context">Imprese con esposizione mista verso Fisco, banche e fornitori che vogliono proseguire l'attività. La composizione negoziata permette di sospendere i pagamenti e trattare riservatamente con tutti i creditori in parallelo.</p>
+        
+        <div class="typology-strategy">
+          <div class="typology-strategy-label">Strategia tipica</div>
+          <ul class="typology-strategy-list">
+            <li>Apertura procedura di composizione negoziata</li>
+            <li>Misure protettive contro azioni esecutive</li>
+            <li>Transazione fiscale con AdE-R</li>
+            <li>Saldo e stralcio bancario / accordi con servicer</li>
+            <li>Omologazione del piano in tribunale</li>
+          </ul>
+        </div>
+        
+        <div class="typology-stralcio">
+          <div class="typology-stralcio-label">Riduzione potenziale</div>
+          <div class="typology-stralcio-value">fino al <em>80%</em></div>
+          <div class="typology-stralcio-note">su debito fiscale e contributivo, in funzione del piano</div>
+        </div>
+      </article>
+      
+      <article class="typology">
+        <div class="typology-meta">
+          <span class="typology-num">— Tipologia 02</span>
+          <span class="typology-target">Professionisti</span>
+        </div>
+        <h3 class="typology-title">Riduzione debito<br><em>fiscale e contributivo</em>.</h3>
+        <p class="typology-context">Studi professionali, partite IVA strutturate e liberi professionisti con esposizione verso Agenzia delle Entrate-Riscossione e INPS. La transazione fiscale e il concordato minore permettono di tagliare sanzioni, interessi e parte del capitale.</p>
+        
+        <div class="typology-strategy">
+          <div class="typology-strategy-label">Strategia tipica</div>
+          <ul class="typology-strategy-list">
+            <li>Verifica prescrizioni e vizi degli atti</li>
+            <li>Definizioni agevolate dove disponibili</li>
+            <li>Transazione fiscale con stralcio capitale</li>
+            <li>Concordato minore se ricorrono i presupposti</li>
+            <li>Dilazione fino a 10 anni</li>
+          </ul>
+        </div>
+        
+        <div class="typology-stralcio">
+          <div class="typology-stralcio-label">Riduzione potenziale</div>
+          <div class="typology-stralcio-value">50—70<em>%</em></div>
+          <div class="typology-stralcio-note">range tipico su sanzioni, interessi e parte del capitale</div>
+        </div>
+      </article>
+      
+      <article class="typology">
+        <div class="typology-meta">
+          <span class="typology-num">— Tipologia 03</span>
+          <span class="typology-target">Persone fisiche</span>
+        </div>
+        <h3 class="typology-title">Esdebitazione<br>e <em>nuovo inizio</em>.</h3>
+        <p class="typology-context">Privati ed ex imprenditori in difficoltà strutturale che non rientrano nelle procedure maggiori. Gli strumenti del sovraindebitamento permettono la cancellazione integrale del debito residuo dopo liquidazione del patrimonio disponibile.</p>
+        
+        <div class="typology-strategy">
+          <div class="typology-strategy-label">Strategia tipica</div>
+          <ul class="typology-strategy-list">
+            <li>Ristrutturazione debiti del consumatore</li>
+            <li>Liquidazione controllata del patrimonio</li>
+            <li>Esdebitazione del soggetto incapiente</li>
+            <li>Tutela del primo immobile (ove possibile)</li>
+            <li>Ripartenza documentata</li>
+          </ul>
+        </div>
+        
+        <div class="typology-stralcio">
+          <div class="typology-stralcio-label">Riduzione potenziale</div>
+          <div class="typology-stralcio-value">fino al <em>100%</em></div>
+          <div class="typology-stralcio-note">cancellazione integrale del debito residuo non soddisfatto</div>
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="cta-block" style="background: var(--ivory-warm);">
+  <div class="container reveal">
+    <h2 class="cta-title">Il tuo caso<br>è <em>il prossimo</em>.</h2>
+    <p class="cta-sub">Ogni situazione è diversa, ma il metodo è lo stesso. Prenota un colloquio per capire da dove partire e quale strumento applicare al tuo dossier.</p>
+    <a href="#/home#contatti" class="btn btn-primary" data-route="home" data-anchor="contatti">Richiedi un colloquio <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+</section>
+<!-- /CASI -->
+
+<!-- ==========================================
+     FAQ PAGE
+     ========================================== -->
+<section class="page" data-page="faq" data-theme="light">
+
+<section class="faq-hero">
+  <div class="container">
+    <div class="section-label reveal">Domande frequenti <span class="section-label-num">— 07 / 07</span></div>
+    <div class="faq-hero-grid">
+      <h1 class="faq-hero-title reveal">Domande<br><em>ricorrenti</em>.</h1>
+      <p class="faq-hero-desc reveal">Le domande che ci vengono poste più spesso da imprese, professionisti e persone fisiche. Se non trovi la tua, scrivici: rispondiamo in modo riservato entro 24 ore.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-search">
+  <div class="container">
+    <div class="faq-search-box">
+      <input type="text" id="faqSearch" placeholder="Cerca tra le domande... es. 'transazione fiscale', 'pignoramento', 'tempi'">
+    </div>
+  </div>
+</section>
+
+<section class="faq-categories">
+  <div class="container">
+    <div class="faq-cat-tabs">
+      <button class="faq-cat-tab active" data-cat="all">Tutte</button>
+      <button class="faq-cat-tab" data-cat="fiscale">Fiscale</button>
+      <button class="faq-cat-tab" data-cat="bancario">Bancario</button>
+      <button class="faq-cat-tab" data-cat="procedurale">Procedurale</button>
+      <button class="faq-cat-tab" data-cat="tempistiche">Tempistiche</button>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <div class="faq-item" data-cat="fiscale">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 01</span>
+          <span class="faq-q-text">È davvero possibile ridurre il debito fiscale?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sì, in molti casi è possibile ridurre in modo consistente il debito verso l'Agenzia delle Entrate-Riscossione. La transazione fiscale nell'ambito della composizione negoziata e degli accordi di ristrutturazione consente, quando ricorrono i presupposti, anche lo stralcio significativo del capitale e l'azzeramento di sanzioni e interessi.</div></div>
+      </div>
+      <div class="faq-item" data-cat="procedurale">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 02</span>
+          <span class="faq-q-text">Posso continuare a lavorare durante la procedura?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">La difesa della continuità aziendale è il cuore del Codice della Crisi. La composizione negoziata, i piani di risanamento attestati e il concordato in continuità sono costruiti proprio per permettere all'impresa di proseguire l'attività durante la ristrutturazione.</div></div>
+      </div>
+      <div class="faq-item" data-cat="procedurale">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 03</span>
+          <span class="faq-q-text">Posso fermare pignoramenti e azioni esecutive in corso?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sì, gli strumenti del Codice della Crisi prevedono misure protettive e cautelari specifiche. Nella composizione negoziata è possibile richiedere la sospensione delle azioni esecutive dei creditori. La tempestività è decisiva: intervenire prima che le azioni siano completate amplia enormemente le possibilità di difesa.</div></div>
+      </div>
+      <div class="faq-item" data-cat="procedurale">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 04</span>
+          <span class="faq-q-text">La procedura è pubblica? Chi può saperlo?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">La composizione negoziata è una procedura riservata: non comporta pubblicità nei registri delle imprese, né espone l'imprenditore. Altri strumenti come gli accordi di ristrutturazione omologati o il concordato prevedono un passaggio giudiziale con pubblicità legale. La scelta dello strumento tiene sempre conto della sensibilità reputazionale del cliente.</div></div>
+      </div>
+      <div class="faq-item" data-cat="tempistiche">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 05</span>
+          <span class="faq-q-text">Quanto dura mediamente una procedura?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Dipende dallo strumento scelto. La composizione negoziata ha una durata ordinaria di sei mesi, prorogabile. Gli accordi di ristrutturazione e i piani di risanamento possono essere conclusi in tempi analoghi, salvo complessità particolari. In sede di strategia forniamo sempre una stima realistica, che raramente viene disattesa.</div></div>
+      </div>
+      <div class="faq-item" data-cat="bancario">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 06</span>
+          <span class="faq-q-text">Posso ottenere lo stralcio anche con le banche?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sì. La negoziazione con il ceto bancario può portare a saldi a stralcio, soprattutto quando le posizioni sono già state classificate come UTP o NPL e cedute a servicer specializzati. La percentuale di riduzione dipende dalla qualità delle garanzie e dalla sostenibilità del piano proposto.</div></div>
+      </div>
+      <div class="faq-item" data-cat="fiscale">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 07</span>
+          <span class="faq-q-text">Cosa succede se ho un accertamento ancora in contenzioso?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Un accertamento in contenzioso può essere comunque oggetto di transazione fiscale. La pendenza del giudizio, in molti casi, costituisce anzi una leva negoziale: l'incertezza sull'esito spinge l'amministrazione finanziaria a valutare più favorevolmente proposte di definizione transattiva.</div></div>
+      </div>
+      <div class="faq-item" data-cat="procedurale">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 08</span>
+          <span class="faq-q-text">Devo essere già in stato di insolvenza per accedere agli strumenti?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">No, anzi: il Codice della Crisi promuove l'intervento precoce. La composizione negoziata si rivolge proprio a chi si trova in stato di crisi o di pre-insolvenza. Più si interviene tempestivamente, maggiori sono gli strumenti disponibili e le probabilità di successo.</div></div>
+      </div>
+      <div class="faq-item" data-cat="tempistiche">
+        <button class="faq-q" type="button">
+          <span class="faq-q-num">— 09</span>
+          <span class="faq-q-text">Quanto costa una consulenza preliminare?</span>
+          <span class="faq-q-icon"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Il primo colloquio conoscitivo è gratuito e senza impegno. Serve a comprendere la situazione, valutare la percorribilità degli strumenti e indicare le linee di intervento. L'eventuale incarico viene formalizzato successivamente con un mandato che definisce attività, tempi e compenso.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block">
+  <div class="container reveal">
+    <h2 class="cta-title">Non hai trovato<br>la <em>tua domanda</em>?</h2>
+    <p class="cta-sub">Scrivici la situazione: rispondiamo entro 24 ore in modo riservato, senza impegno.</p>
+    <a href="#/home#contatti" class="btn btn-primary" data-route="home" data-anchor="contatti">Fai la tua domanda <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+</section>
+<!-- /FAQ -->
+
+<!-- ==========================================
+     OSSERVATORIO PAGE
+     ========================================== -->
+<section class="page" data-page="osservatorio" data-theme="light">
+
+<section class="obs-hero">
+  <div class="container">
+    <div class="section-label reveal">Osservatorio Crisi e Insolvenza <span class="section-label-num">— 06 / 07</span></div>
+    <div class="obs-hero-grid">
+      <h1 class="obs-hero-title reveal">Pubblichiamo<br>quello che <em>studiamo</em>.</h1>
+      <div class="obs-hero-side reveal">
+        <p class="obs-hero-desc">Articoli divulgativi sulla stampa nazionale, commenti tecnici a sentenze rilevanti, paper scientifici. Un osservatorio permanente sulla crisi d'impresa, sui dati di sistema e sull'evoluzione del Codice della Crisi.</p>
+        <div class="obs-hero-stats">
+          <div class="obs-stat">
+            <div class="obs-stat-num">16</div>
+            <div class="obs-stat-lbl">Articoli su quotidiani</div>
+          </div>
+          <div class="obs-stat">
+            <div class="obs-stat-num">5</div>
+            <div class="obs-stat-lbl">Paper scientifici</div>
+          </div>
+          <div class="obs-stat">
+            <div class="obs-stat-num">2026</div>
+            <div class="obs-stat-lbl">Ultimo aggiornamento</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strip testate -->
+<section class="obs-press-strip">
+  <div class="container">
+    <p class="obs-press-label">Le testate e le riviste su cui pubblichiamo</p>
+    <div class="obs-press-logos">
+      <span class="obs-press-logo">Italia<em>Oggi</em></span>
+      <span class="obs-press-logo">Italia<em>Oggi7</em></span>
+      <span class="obs-press-logo">Capital<small>Class Editori</small></span>
+      <span class="obs-press-logo"><em>IUS</em> Lefebvre Giuffrè</span>
+      <span class="obs-press-logo">Insolvency Observatory<small>University</small></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CAPITOLO 01 — RASSEGNA STAMPA
+     ============================================ -->
+<section class="obs-chapter">
+  <div class="container">
+    <div class="obs-chapter-head reveal">
+      <div class="obs-chapter-num">01</div>
+      <div class="obs-chapter-meta">
+        <div class="obs-chapter-label">Capitolo primo — Rassegna stampa</div>
+        <h2 class="obs-chapter-title">Articoli sui<br><em>quotidiani nazionali</em>.</h2>
+        <p class="obs-chapter-desc">Sedici contributi pubblicati negli ultimi mesi su <em>ItaliaOggi</em>, <em>ItaliaOggi7</em> e nella sezione <em>Capital — Diritto &amp; Fisco</em>. Analisi dei dati Unioncamere e Cribis, commenti alle decisioni dei tribunali, monitoraggio della transazione fiscale e delle procedure concorsuali, scenari macro. Filtra per area tematica.</p>
+      </div>
+    </div>
+
+    <div class="obs-filters reveal" id="obsFilters">
+      <button class="obs-filter active" data-filter="all">Tutti <span class="obs-filter-count">16</span></button>
+      <button class="obs-filter" data-filter="cnc">Composizione negoziata <span class="obs-filter-count">3</span></button>
+      <button class="obs-filter" data-filter="fiscale">Transazione fiscale <span class="obs-filter-count">3</span></button>
+      <button class="obs-filter" data-filter="npl">Crediti deteriorati &amp; NPL <span class="obs-filter-count">2</span></button>
+      <button class="obs-filter" data-filter="procedure">Procedure &amp; normativa <span class="obs-filter-count">4</span></button>
+      <button class="obs-filter" data-filter="continuita">Continuità &amp; passaggio gen. <span class="obs-filter-count">1</span></button>
+      <button class="obs-filter" data-filter="macro">Scenario macro <span class="obs-filter-count">3</span></button>
+    </div>
+
+    <div class="obs-press-grid" id="obsPressGrid">
+
+      <!-- 00 — IN PRIMO PIANO: Risanamento, 10 errori — 11 maggio 2026 -->
+      <article class="obs-article obs-article-featured" data-cat="procedure">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi7</span>
+          <span class="obs-article-pin">In primo piano</span>
+          <img src="images/article_11maggio.jpg" alt="Risanamento, 10 errori da evitare — ItaliaOggi7 11 maggio 2026" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Procedure &amp; metodo</span>
+            <span class="obs-article-date">11 mag 2026</span>
+          </div>
+          <h3 class="obs-article-title">Risanamento, 10 errori da evitare.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi7</strong> — Un piano serio deve dimostrare come l'utile sarà prodotto.</p>
+          <p class="obs-article-abstract">Codice della Crisi e check-list della composizione negoziata esigono verificabilità e coerenza. Il piano deve essere un percorso logico che spiega — con rigore industriale e finanziario — perché l'azienda possa restare sul mercato e a quali condizioni. Dieci errori ricorrenti da intercettare prima della bocciatura: dalla confusione tra risanamento e dilazione del debito alla diagnosi statica, dall'ottimismo contabile alle proiezioni senza valutazione di tenuta, fino all'assenza di KPI di monitoraggio.</p>
+        </div>
+      </article>
+
+      <!-- 00 — Più ricchi ma risparmiano meno — 9 maggio 2026 -->
+      <article class="obs-article" data-cat="macro">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/article_9maggio.jpg" alt="Più ricchi ma risparmiano meno — ItaliaOggi 9 maggio 2026" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Scenario macro</span>
+            <span class="obs-article-date">9 mag 2026</span>
+          </div>
+          <h3 class="obs-article-title">Più ricchi ma risparmiano meno.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Il dato più interessante è il boom del risparmio gestito.</p>
+          <p class="obs-article-abstract">Il paradosso che emerge dai dati più recenti: gli italiani sono sempre più ricchi (attività finanziarie oltre 6.200 miliardi, +4,6% in dodici mesi) ma la propensione al risparmio torna a scendere. Cambia la struttura del risparmio: i depositi restano elevati (1.584 mld, +1,7%) ma calano in peso; crescono azioni e partecipazioni (+8%) e fondi comuni (+8,4%). Un Paese che si trasforma da accumulatore di liquidità a investitore.</p>
+        </div>
+      </article>
+
+      <!-- 01 — Fisco punta sul risanamento — 17 apr 2026 -->
+      <article class="obs-article" data-cat="fiscale">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_04.jpg" alt="Crisi d'impresa, il fisco punta sul risanamento" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Transazione fiscale</span>
+            <span class="obs-article-date">17 apr 2026</span>
+          </div>
+          <h3 class="obs-article-title">Crisi d'impresa, il fisco punta sul risanamento.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — La bozza di circolare delle Entrate crea una mappa organica.</p>
+          <p class="obs-article-abstract">L'Agenzia delle Entrate prepara un testo-guida unico orientato al risanamento più che alla liquidazione. Il commento ricostruisce il passaggio da "fallimento" a "liquidazione giudiziale" come scelta culturale: il Fisco non più solo creditore ma parte attiva del risanamento.</p>
+        </div>
+      </article>
+
+      <!-- 02 — Banca Progetto cartolarizzati — 17 apr 2026 -->
+      <article class="obs-article" data-cat="npl">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_05.jpg" alt="Banca Progetto: crediti per 2,1 mld cartolarizzati" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Crediti deteriorati</span>
+            <span class="obs-article-date">17 apr 2026</span>
+          </div>
+          <h3 class="obs-article-title">Banca Progetto: crediti per 2,1 mld cartolarizzati.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — L'operazione con AMCO che chiude l'amministrazione straordinaria.</p>
+          <p class="obs-article-abstract">Il caso Banca Progetto ricostruito nei dettagli tecnici: portafoglio NPL garantito MCC e SACE, ruolo di AMCO come investitore e servicer, effetti per le imprese debitrici. Un segnale di mercato sulla gestione industriale del credito deteriorato.</p>
+        </div>
+      </article>
+
+      <!-- 03 — Decollata transazione fiscale — 4 apr 2026 -->
+      <article class="obs-article" data-cat="fiscale">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">Capital — Diritto &amp; Fisco</span>
+          <img src="images/img_06.jpg" alt="Decollata la transazione fiscale" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Transazione fiscale</span>
+            <span class="obs-article-date">4 apr 2026</span>
+          </div>
+          <h3 class="obs-article-title">Decollata la transazione fiscale.</h3>
+          <p class="obs-article-source"><strong>Capital — Diritto &amp; Fisco</strong> — 39 accordi nei primi tre mesi del 2026.</p>
+          <p class="obs-article-abstract">Dopo mesi di stallo, la transazione fiscale nella composizione negoziata inizia a funzionare: 39 accordi sottoscritti, 4.411 istanze totali, oltre 32.000 lavoratori coinvolti. Un cambio culturale che vede il Fisco protagonista del salvataggio aziendale.</p>
+        </div>
+      </article>
+
+      <!-- 04 — Direttiva Insolvency II — 1 apr 2026 -->
+      <article class="obs-article" data-cat="procedure">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_07.jpg" alt="Ok alla II direttiva Insolvency, rafforzato il recupero crediti" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Normativa UE</span>
+            <span class="obs-article-date">1 apr 2026</span>
+          </div>
+          <h3 class="obs-article-title">Ok alla II direttiva Insolvency, rafforzato il recupero crediti.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Diritto e impresa.</p>
+          <p class="obs-article-abstract">L'Unione approva il pre-pack europeo: armonizzazione delle procedure concorsuali, rafforzamento dell'azione revocatoria, tracciamento dei beni. 33 mesi per il recepimento. Impatto sistemico atteso sulla giustizia elettronica e sulla comparabilità tra ordinamenti.</p>
+        </div>
+      </article>
+
+      <!-- 05 — Liquidazioni giudiziali — 3 mar 2026 -->
+      <article class="obs-article" data-cat="procedure">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_08.jpg" alt="Liquidazioni giudiziali col più. Frenata a fine 2025." loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Procedure concorsuali</span>
+            <span class="obs-article-date">3 mar 2026</span>
+          </div>
+          <h3 class="obs-article-title">Liquidazioni giudiziali col più. Crescita strutturale nel biennio.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Dati Cribis: commercio ed edilizia i più colpiti.</p>
+          <p class="obs-article-abstract">9.795 procedure annue (+30% sul 2023). Lombardia, Lazio e Piemonte in testa per numerosità; commercio (+45%), edilizia e servizi i settori più esposti. Nel quarto trimestre boom dei concordati preventivi (+75% YoY): rimodulazione strategica del tessuto produttivo.</p>
+        </div>
+      </article>
+
+      <!-- 06 — Crediti deteriorati a una svolta — 23 feb 2026 -->
+      <article class="obs-article" data-cat="npl">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi7</span>
+          <img src="images/img_09.jpg" alt="Crediti deteriorati a una svolta. Maxi-cessioni fuori dalla scena." loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Crediti deteriorati</span>
+            <span class="obs-article-date">23 feb 2026</span>
+          </div>
+          <h3 class="obs-article-title">Crediti deteriorati a una svolta. Maxi-cessioni fuori dalla scena.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi7</strong> — Le evoluzioni nelle inadempienze probabili.</p>
+          <p class="obs-article-abstract">51 mld € di NPL lordi, 27,8 mld in UTP (54,5%). Il mercato si sposta dalla pulizia straordinaria alla gestione "a valle": meno operatori, più specializzati, partnership continuative con gli originator. Le UTP richiedono capacità negoziale e padronanza degli strumenti del CCII.</p>
+        </div>
+      </article>
+
+      <!-- 07 — Private equity +30% — 16 gen 2026 -->
+      <article class="obs-article" data-cat="macro">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_10.jpg" alt="Private equity, +30% nel 2025" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">M&amp;A &amp; ristrutturazioni</span>
+            <span class="obs-article-date">16 gen 2026</span>
+          </div>
+          <h3 class="obs-article-title">Private equity, +30% nel 2025. Registrate 551 operazioni.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Diritto e finanza, dati Osservatorio AIFI.</p>
+          <p class="obs-article-abstract">Anno record: 551 operazioni concluse contro le 419 del 2024. Operatori esteri al 59% del mercato. Picco a dicembre con 60 deal. Si profila un ruolo crescente del PE nell'aggregazione settoriale e nella ristrutturazione delle imprese italiane.</p>
+        </div>
+      </article>
+
+      <!-- 08 — Transazione fiscale — 15 gen 2026 -->
+      <article class="obs-article" data-cat="fiscale">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_11.jpg" alt="Crisi d'impresa, transazione fiscale: l'assetto è da affinare" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Transazione fiscale</span>
+            <span class="obs-article-date">15 gen 2026</span>
+          </div>
+          <h3 class="obs-article-title">Transazione fiscale: pochi i casi di conclusione positiva, l'assetto è da affinare.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Giustizia e società.</p>
+          <p class="obs-article-abstract">A oltre un anno dall'introduzione, il bilancio applicativo è in chiaroscuro. Cambio di paradigma necessario: la transazione fiscale come investimento dell'Erario sulla continuità, non come mera concessione. Approccio sempre più dinamico-prospettico delle Direzioni Regionali.</p>
+        </div>
+      </article>
+
+      <!-- 09 — DURC sbloccato — 30 dic 2025 -->
+      <article class="obs-article" data-cat="cnc">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_12.jpg" alt="Crisi d'impresa, Durc sbloccato. Tribunale di Ivrea." loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Composizione negoziata</span>
+            <span class="obs-article-date">30 dic 2025</span>
+          </div>
+          <h3 class="obs-article-title">Crisi d'impresa, Durc sbloccato. Rilascio anche con debiti contributivi nel rientro.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Giustizia e società. Tribunale di Ivrea, 24 dicembre 2025.</p>
+          <p class="obs-article-abstract">Il Tribunale di Ivrea apre alla misura cautelare atipica per il rilascio del DURC nell'ambito della composizione negoziata. Distinzione netta tra ordine diretto all'INPS (inammissibile) e accertamento interinale dei presupposti (ammissibile). Tutela operativa della continuità aziendale.</p>
+        </div>
+      </article>
+
+      <!-- 10 — Tasso interesse legale 1,60% — 16 dic 2025 -->
+      <article class="obs-article" data-cat="procedure">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_13.jpg" alt="Tasso d'interesse legale 1,60%" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Fiscalità &amp; ravvedimento</span>
+            <span class="obs-article-date">16 dic 2025</span>
+          </div>
+          <h3 class="obs-article-title">Tasso d'interesse legale 1,60%. Diventa meno caro il ravvedimento operoso.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Decreto MEF, GU 13 dic 2025.</p>
+          <p class="obs-article-abstract">Riduzione dal 2,00% all'1,60% in vigore dal 1° gennaio 2026. Effetti immediati sul ravvedimento operoso, sui risarcimenti del danno e sugli interessi tributari. Maggiore appetibilità della regolarizzazione spontanea per il contribuente.</p>
+        </div>
+      </article>
+
+      <!-- 11 — Cnc, un'impresa su 5 — ottobre 2025 -->
+      <article class="obs-article" data-cat="cnc">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_14.jpg" alt="Cnc, un'impresa su cinque ce la fa" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Composizione negoziata</span>
+            <span class="obs-article-date">ott 2025</span>
+          </div>
+          <h3 class="obs-article-title">Cnc, un'impresa su cinque ce la fa.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Bilancio dei primi quattro anni.</p>
+          <p class="obs-article-abstract">Al 1° ottobre 2025: 3.400 composizioni negoziate, 402 con esito positivo (20%). 22.200 addetti coinvolti. La CNC funziona su imprese medio-grandi; per le microimprese servono correttivi all'art. 25 undecies e una rateizzazione automatica con soglie più realistiche.</p>
+        </div>
+      </article>
+
+      <!-- 12 — Private equity nella CNC — 22 ago 2025 -->
+      <article class="obs-article" data-cat="cnc">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi</span>
+          <img src="images/img_15.jpg" alt="Il private equity nella Cnc: la composizione negoziata seduce" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Composizione negoziata</span>
+            <span class="obs-article-date">22 ago 2025</span>
+          </div>
+          <h3 class="obs-article-title">Il private equity nella Cnc. La composizione negoziata seduce.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Crisi d'impresa, +80% di operazioni gestite dai fondi.</p>
+          <p class="obs-article-abstract">Il PE entra stabilmente nella composizione negoziata: art. 22 CCII come leva per nuova finanza prededucibile, capitale protetto, schemi di acquisizione strutturati. La CNC come piattaforma di investimento, non più solo strumento di gestione della crisi.</p>
+        </div>
+      </article>
+
+      <!-- 13 — Passaggio generazionale — 7 apr 2026 -->
+      <article class="obs-article" data-cat="continuita">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi7</span>
+          <img src="images/img_16.jpg" alt="Di padre in figlio: come prepararsi" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Continuità aziendale</span>
+            <span class="obs-article-date">7 apr 2026</span>
+          </div>
+          <h3 class="obs-article-title">Di padre in figlio: come prepararsi. Nei passaggi generazionali la pianificazione diventa vitale.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi7</strong> — Impresa, dati Osservatorio AUB.</p>
+          <p class="obs-article-abstract">Tra il 2025 e il 2034, il 33,5% delle imprese familiari sopra 20 mln di ricavi sarà interessato da un passaggio generazionale (fino al 48,8% con best practice di governance). Pianificazione strutturata come fattore decisivo di continuità.</p>
+        </div>
+      </article>
+
+      <!-- 14 — Deficit/PIL — 25 apr 2026 -->
+      <article class="obs-article" data-cat="macro">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi — Primo Piano</span>
+          <img src="images/img_17.jpg" alt="Ridotto il rosso dall'8,1 al 3,1%" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Scenario macro</span>
+            <span class="obs-article-date">25 apr 2026</span>
+          </div>
+          <h3 class="obs-article-title">Ridotto il rosso dall'8,1 al 3,1%. Stupisce non solo la discesa, ma la sua velocità.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Primo Piano, Banca d'Italia &amp; Eurostat.</p>
+          <p class="obs-article-abstract">In tre anni l'Italia ha quasi dimezzato il rapporto deficit/PIL (da 8,1% a 3,1%). Riduzione guidata dal ridimensionamento dei contributi in conto capitale legati al Superbonus. Percorso solido ma con incognita interessi sul debito pubblico.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CAPITOLO 02 — PUBBLICAZIONI SCIENTIFICHE
+     ============================================ -->
+<section class="obs-science">
+  <div class="container">
+    <div class="obs-chapter-head reveal">
+      <div class="obs-chapter-num">02</div>
+      <div class="obs-chapter-meta">
+        <div class="obs-chapter-label">Capitolo secondo — Contributi scientifici</div>
+        <h2 class="obs-chapter-title">Paper, commenti<br>e <em>analisi accademiche</em>.</h2>
+        <p class="obs-chapter-desc">Contributi a riviste giuridiche specialistiche e paper d'analisi pubblicati su <em>IUS Lefebvre Giuffrè</em>. Commenti a sentenze rilevanti del Codice della Crisi, analisi macro-quantitative dell'insolvenza, approfondimenti dottrinali su singoli istituti.</p>
+      </div>
+    </div>
+
+    <div class="obs-papers reveal">
+
+      <!-- Paper 01 — DURC IUS Lefebvre -->
+      <article class="obs-paper">
+        <div class="obs-paper-num">01</div>
+        <div class="obs-paper-body">
+          <div class="obs-paper-meta">
+            <span class="obs-paper-source">IUS Lefebvre Giuffrè</span>
+            <span>Marzo 2026</span>
+            <span class="obs-paper-tag">Commento a sentenza</span>
+          </div>
+          <h3 class="obs-paper-title">Composizione negoziata della crisi e DURC: misure cautelari atipiche e continuità aziendale.</h3>
+          <p class="obs-paper-abstract">Verso un'interpretazione sistematica e funzionale delle misure cautelari ex art. 19 CCII. Il provvedimento del Tribunale di Ivrea del 24 dicembre 2025 affronta in modo articolato la concedibilità di misure cautelari atipiche funzionali al rilascio del DURC, valorizzando la continuità aziendale come bene giuridico primario e chiarendo il discrimine tra ordine di facere e accertamento interinale.</p>
+          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
+        </div>
+        <div class="obs-paper-action">
+          <a href="documents/doc_01.pdf" download="2026-composizione-negoziata-durc-ius-lefebvre.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+            <span>Scarica PDF</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Paper 02 — Concordato minore Locri -->
+      <article class="obs-paper">
+        <div class="obs-paper-num">02</div>
+        <div class="obs-paper-body">
+          <div class="obs-paper-meta">
+            <span class="obs-paper-source">Insolvency Observatory</span>
+            <span>Luglio 2025</span>
+            <span class="obs-paper-tag">Commento a sentenza</span>
+          </div>
+          <h3 class="obs-paper-title">Il Concordato Minore del professionista sovraindebitato: profili di continuità, cram down pubblico e dignità del debitore.</h3>
+          <p class="obs-paper-abstract">Analisi della sentenza del Tribunale di Locri n. 14/2025, prima omologa di un concordato minore proposto da un professionista sovraindebitato. Il contributo affronta l'inapplicabilità dei requisiti dimensionali ex art. 77 CCII al non-imprenditore, il principio del fabbisogno dignitoso ex art. 47 CCII e la portata applicativa del cram down fiscale e previdenziale ex art. 80, co. 3, CCII.</p>
+          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
+        </div>
+        <div class="obs-paper-action">
+          <a href="documents/doc_02.pdf" download="2025-concordato-minore-locri.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+            <span>Scarica PDF</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Paper 03 — Macro insolvency 2024-2026 -->
+      <article class="obs-paper">
+        <div class="obs-paper-num">03</div>
+        <div class="obs-paper-body">
+          <div class="obs-paper-meta">
+            <span class="obs-paper-source">Insolvency Observatory</span>
+            <span>Luglio 2025</span>
+            <span class="obs-paper-tag">Paper macroeconomico</span>
+          </div>
+          <h3 class="obs-paper-title">Macroeconomic Analysis of Corporate Insolvency Trends (2024–2026).</h3>
+          <p class="obs-paper-abstract">Studio quantitativo sulle prospettive di insolvenza in Italia e nel contesto globale. Quasi 30.000 imprese a rischio insolvenza nel biennio. Costruzione +62%, manifatturiero +58%, retail +50%. Impatto sul mercato del lavoro: 2,3 milioni di posti di lavoro a rischio diretto nel 2025. Analisi degli scenari per le PMI italiane.</p>
+          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
+        </div>
+        <div class="obs-paper-action">
+          <a href="documents/doc_03.pdf" download="2025-insolvency-trends-2024-2026.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+            <span>Download paper</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Paper 04 — Composizione negoziata analisi territoriale -->
+      <article class="obs-paper">
+        <div class="obs-paper-num">04</div>
+        <div class="obs-paper-body">
+          <div class="obs-paper-meta">
+            <span class="obs-paper-source">Insolvency Observatory</span>
+            <span>Agosto 2025</span>
+            <span class="obs-paper-tag">Analisi territoriale</span>
+          </div>
+          <h3 class="obs-paper-title">La Composizione Negoziata della Crisi: analisi nazionale e regionale 2023 – I semestre 2025.</h3>
+          <p class="obs-paper-abstract">Studio quantitativo della diffusione della composizione negoziata, con focus sulla Regione Lombardia e sulla Camera di Commercio di Milano. Sui dati Unioncamere: identikit delle imprese coinvolte, distribuzione per forma giuridica e settore, fatturato delle imprese residuate. Trend, criticità e prospettive applicative.</p>
+          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
+        </div>
+        <div class="obs-paper-action">
+          <a href="documents/doc_04.pdf" download="2025-composizione-negoziata-analisi-nazionale-regionale.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+            <span>Scarica PDF</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Paper 05 — Cassazione SS.UU. 3625/2025 -->
+      <article class="obs-paper">
+        <div class="obs-paper-num">05</div>
+        <div class="obs-paper-body">
+          <div class="obs-paper-meta">
+            <span class="obs-paper-source">Insolvency Observatory</span>
+            <span>Febbraio 2025</span>
+            <span class="obs-paper-tag">Cassazione SS.UU.</span>
+          </div>
+          <h3 class="obs-paper-title">Former shareholders are not liable for the tax debts of a dissolved company.</h3>
+          <p class="obs-paper-abstract">Commento alla pronuncia delle Sezioni Unite della Cassazione n. 3625/2025: gli ex soci non rispondono automaticamente dei debiti fiscali della società estinta. Onere probatorio in capo all'Agenzia delle Entrate sulla concreta percezione di somme dal riparto. Impatto sulla certezza del diritto nei rapporti tra imprese e fisco.</p>
+          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
+        </div>
+        <div class="obs-paper-action">
+          <a href="documents/doc_05.pdf" download="2025-cassazione-3625-soci-debiti-fiscali.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+            <span>Download paper</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section class="obs-closing">
+  <div class="container">
+    <p class="obs-closing-quote reveal">
+      «Studiare la crisi è il presupposto per <em>governarla</em>. Pubblicare quello che studiamo è il presupposto per <em>essere scelti</em>.»
+    </p>
+    <p class="obs-closing-attr reveal">— Martinelli, Crisi d'Impresa</p>
+    <a href="#/home#contatti" class="btn btn-primary obs-closing-cta" data-route="home" data-anchor="contatti">Parliamone insieme <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+</section>
+<!-- /OSSERVATORIO -->
+
+<!-- ============================================
+     LAVORA CON NOI
+     ============================================ -->
+<section class="page" data-page="lavora-con-noi" data-theme="light">
+
+<section class="careers-hero">
+  <div class="container">
+    <div class="careers-hero-inner reveal">
+      <div class="careers-hero-kicker">— Lavora con noi</div>
+      <h1 class="careers-hero-title">Costruiamo lo studio<br>che vorremmo <em>trovare domani</em>.</h1>
+      <p class="careers-hero-sub">Cerchiamo professionisti che condividano la nostra idea di boutique: poche pratiche all'anno, seguite con metodo. Rigore tecnico, indipendenza di giudizio, attenzione alla persona dietro all'impresa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="careers-body">
+  <div class="container">
+    <div class="careers-grid">
+      <aside class="careers-aside reveal">
+        <div class="careers-aside-label">Candidature</div>
+        <h2 class="careers-aside-title">Invia la tua candidatura.</h2>
+        <p class="careers-aside-desc">Valutiamo personalmente ogni candidatura. Rispondiamo entro due settimane lavorative anche in assenza di posizioni immediate, perché crediamo che il modo in cui si gestisce un colloquio dica molto su come si gestirà un dossier.</p>
+      </aside>
+
+      <div class="careers-content reveal">
+        <div class="careers-instructions">
+          <p>Se siete interessati a sottoporci la vostra candidatura, inviateci il vostro <em>curriculum vitae</em> accompagnato da una lettera di presentazione all'indirizzo:</p>
+          <a href="mailto:martinelli.crisi@gmail.com?subject=Candidatura%20Spontanea" class="careers-email">martinelli.crisi@gmail.com</a>
+          <p class="careers-instructions-note">Indicate nell'oggetto della mail "Candidatura spontanea" e, se possibile, l'area di interesse (ristrutturazione del debito, composizione negoziata, transazione fiscale, supporto amministrativo).</p>
+        </div>
+
+        <div class="careers-divider"></div>
+
+        <div class="careers-criteria">
+          <h3 class="careers-criteria-title">Cosa valutiamo.</h3>
+          <ul class="careers-criteria-list">
+            <li>
+              <span class="careers-criteria-num">i.</span>
+              <div>
+                <strong>Formazione tecnica solida.</strong>
+                <p>Background in giurisprudenza, economia o discipline affini, con specializzazione o interesse marcato per il diritto della crisi d'impresa.</p>
+              </div>
+            </li>
+            <li>
+              <span class="careers-criteria-num">ii.</span>
+              <div>
+                <strong>Rigore e capacità di scrittura.</strong>
+                <p>Saper costruire un atto, un piano, una memoria, una circolare: chiarezza, gerarchia logica, attenzione al dato.</p>
+              </div>
+            </li>
+            <li>
+              <span class="careers-criteria-num">iii.</span>
+              <div>
+                <strong>Approccio collaborativo.</strong>
+                <p>I dossier complessi si gestiscono in squadra. Cerchiamo persone che sappiano lavorare con altri partner e con interlocutori esterni — banche, fisco, periti, advisor — senza protagonismo.</p>
+              </div>
+            </li>
+            <li>
+              <span class="careers-criteria-num">iv.</span>
+              <div>
+                <strong>Visione del cliente.</strong>
+                <p>Dietro ogni dossier c'è un'impresa e una persona. La cura del rapporto e la capacità di tradurre la tecnica in linguaggio comprensibile fanno parte del nostro mestiere.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="careers-closing">
+  <div class="container">
+    <div class="careers-closing-inner reveal">
+      <p class="careers-closing-quote"><em>"Non puntiamo alla scala — puntiamo alla profondità. Vale anche per come scegliamo le persone."</em></p>
+    </div>
+  </div>
+</section>
+
+</section>
+<!-- /LAVORA CON NOI -->
+
 </main>
 
-<!-- Footer -->
+<!-- ============================================
+     FOOTER
+     ============================================ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -8327,20 +9398,21 @@ body::before {
       <div>
         <div class="footer-col-title">Studio</div>
         <ul class="footer-links">
-          <li><a href="studio.html">Chi siamo</a></li>
-          <li><a href="metodo.html">Metodo</a></li>
-          <li><a href="casi.html">Tipologie di intervento</a></li>
-          <li><a href="osservatorio.html">Osservatorio</a></li>
+          <li><a href="#/studio" data-route="studio">Chi siamo</a></li>
+          <li><a href="#/metodo" data-route="metodo">Metodo</a></li>
+          <li><a href="#/casi" data-route="casi">Tipologie di intervento</a></li>
+          <li><a href="#/osservatorio" data-route="osservatorio">Osservatorio</a></li>
+          <li><a href="#/lavora-con-noi" data-route="lavora-con-noi">Lavora con noi</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Soluzioni</div>
         <ul class="footer-links">
-          <li><a href="soluzioni.html">Composizione negoziata</a></li>
-          <li><a href="soluzioni.html">Transazione fiscale</a></li>
-          <li><a href="soluzioni.html">Accordi bancari</a></li>
-          <li><a href="soluzioni.html">Piani di risanamento</a></li>
-          <li><a href="soluzioni.html">Sovraindebitamento</a></li>
+          <li><a href="#/soluzioni" data-route="soluzioni">Composizione negoziata</a></li>
+          <li><a href="#/soluzioni" data-route="soluzioni">Transazione fiscale</a></li>
+          <li><a href="#/soluzioni" data-route="soluzioni">Accordi bancari</a></li>
+          <li><a href="#/soluzioni" data-route="soluzioni">Piani di risanamento</a></li>
+          <li><a href="#/soluzioni" data-route="soluzioni">Sovraindebitamento</a></li>
         </ul>
       </div>
       <div>
@@ -8348,40 +9420,250 @@ body::before {
         <ul class="footer-links">
           <li><a href="tel:+393297575459">+39 329 757 5459</a></li>
           <li><a href="mailto:martinelli.crisi@gmail.com">martinelli.crisi@gmail.com</a></li>
-          <li><a href="#" class="open-consulenza">Richiedi consulenza</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#/home#contatti" data-route="home" data-anchor="contatti">Richiedi consulenza</a></li>
+          <li><a href="#/faq" data-route="faq">FAQ</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>&copy; 2026 Martinelli — Crisi d'Impresa. Tutti i diritti riservati.</div>
+      <div>© 2026 Martinelli — Crisi d'Impresa. Tutti i diritti riservati.</div>
       <div class="footer-legal">
+        <!-- iubenda: Privacy Policy + Cookie Policy come embed (overlay sul sito) -->
         <a href="https://www.iubenda.com/privacy-policy/40475408" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
         <a href="https://www.iubenda.com/privacy-policy/40475408/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+        <!-- Link per ri-aprire le preferenze cookie (richiesto da Garante Privacy) -->
         <a href="#" class="iubenda-cs-preferences-link">Preferenze cookie</a>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Mobile sticky CTA -->
+<!-- ============================================
+     MOBILE STICKY CTA
+     ============================================ -->
 <div class="mobile-sticky-cta">
   <a href="tel:+393297575459" class="msc-call">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     Chiamaci ora
   </a>
-  <a href="#" class="msc-form open-consulenza">
+  <a href="#" class="msc-form">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
     Consulenza
   </a>
 </div>
 
-<!-- Scripts -->
+<!-- ============================================
+     SCRIPTS
+     ============================================ -->
 <script>
 /* ============================================
    PAGES META
    ============================================ */
+const PAGES = {
+  home:             { num: '01', title: 'Home',           theme: 'dark'  },
+  studio:           { num: '02', title: 'Studio',         theme: 'light' },
+  soluzioni:        { num: '03', title: 'Soluzioni',      theme: 'dark'  },
+  metodo:           { num: '04', title: 'Metodo',         theme: 'light' },
+  casi:             { num: '05', title: 'Casi',           theme: 'dark'  },
+  osservatorio:     { num: '06', title: 'Osservatorio',   theme: 'light' },
+  faq:              { num: '07', title: 'FAQ',            theme: 'light' },
+  'lavora-con-noi': { num: '08', title: 'Lavora con noi', theme: 'light' }
+};
 
+/* ============================================
+   ROUTING
+   ============================================ */
+function getRouteFromHash() {
+  const h = window.location.hash || '#/home';
+  // Permettiamo trattini per slug compositi come "lavora-con-noi"
+  const m = h.match(/^#\/([a-z][a-z0-9-]*)/);
+  return (m && PAGES[m[1]]) ? m[1] : 'home';
+}
+function getAnchorFromHash() {
+  const h = window.location.hash || '';
+  const parts = h.split('#').filter(Boolean);
+  // hash format: #/route#anchor → parts = ['/route', 'anchor']
+  if (parts.length >= 2) return parts[1];
+  return null;
+}
+
+let currentRoute = null;
+let isTransitioning = false;
+
+function switchPage(route, anchor) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.querySelector(`.page[data-page="${route}"]`);
+  if (target) target.classList.add('active');
+  
+  // theme update
+  const theme = PAGES[route].theme;
+  const nav = document.getElementById('nav');
+  nav.classList.remove('theme-dark', 'theme-light');
+  nav.classList.add(theme === 'dark' ? 'theme-dark' : 'theme-light');
+  
+  // active nav link
+  document.querySelectorAll('.nav-menu a[data-route]').forEach(a => {
+    a.classList.toggle('active', a.dataset.route === route && !a.classList.contains('nav-cta'));
+  });
+  
+  currentRoute = route;
+  
+  // scroll to anchor or top
+  setTimeout(() => {
+    if (anchor) {
+      const el = document.getElementById(anchor);
+      if (el) {
+        if (window.lenis) {
+          window.lenis.scrollTo(el, { immediate: true, lock: true });
+        } else {
+          el.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+        return;
+      }
+    }
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true, lock: true });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, 50);
+  
+  // re-trigger reveal observer for new content
+  setTimeout(initRevealObserver, 100);
+}
+
+function navigateTo(route, anchor) {
+  if (isTransitioning) return;
+  if (route === currentRoute) {
+    // same page, just scroll
+    if (anchor) {
+      const el = document.getElementById(anchor);
+      if (el) {
+        if (window.lenis) {
+          window.lenis.scrollTo(el, { duration: 1.6, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    } else {
+      if (window.lenis) {
+        window.lenis.scrollTo(0, { duration: 1.6 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+    return;
+  }
+  
+  const meta = PAGES[route];
+  if (!meta) { return; } // safety: rotta non valida
+
+  // Fallback: se GSAP non è caricato (CDN bloccata, file:// locale, ecc.)
+  // o l'overlay non esiste, fai switch immediato senza animazione
+  const overlay = document.getElementById('pageTransition');
+  if (typeof gsap === 'undefined' || !overlay) {
+    switchPage(route, anchor);
+    return;
+  }
+
+  isTransitioning = true;
+  
+  // update transition overlay content
+  const tNum = document.getElementById('transitionNum');
+  const tTitle = document.getElementById('transitionTitle');
+  if (tNum) tNum.textContent = `— ${meta.num} / 07 —`;
+  if (tTitle) tTitle.innerHTML = `<em>${meta.title}</em>`;
+  
+  const content = overlay.querySelector('.transition-content');
+  const line = overlay.querySelector('.transition-line');
+  
+  overlay.classList.add('active');
+  
+  try {
+    const tl = gsap.timeline({
+      onComplete: () => {
+        isTransitioning = false;
+      }
+    });
+    
+    tl.to(overlay, { y: 0, duration: 0.7, ease: 'power3.inOut' })
+      .to(content, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '-=0.2')
+      .to(line, { scaleX: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3')
+      .add(() => {
+        switchPage(route, anchor);
+      }, '+=0.2')
+      .to(content, { opacity: 0, y: -30, duration: 0.3, ease: 'power2.in' }, '+=0.2')
+      .set(line, { scaleX: 0 })
+      .to(overlay, { y: '-100%', duration: 0.7, ease: 'power3.inOut' }, '-=0.1')
+      .set(overlay, {
+        y: '100%',
+        onComplete: () => overlay.classList.remove('active')
+      });
+  } catch (err) {
+    // se GSAP fallisce a runtime, fai comunque switch immediato per non bloccare la nav
+    console.warn('Transizione GSAP fallita, fallback immediato:', err);
+    overlay.classList.remove('active');
+    isTransitioning = false;
+    switchPage(route, anchor);
+  }
+}
+
+/* ============================================
+   HASH ROUTER + LINK HANDLERS
+   ============================================ */
+window.addEventListener('hashchange', () => {
+  const route = getRouteFromHash();
+  const anchor = getAnchorFromHash();
+  if (route !== currentRoute) {
+    navigateTo(route, anchor);
+  } else if (anchor) {
+    const el = document.getElementById(anchor);
+    if (el) {
+      if (window.lenis) {
+        window.lenis.scrollTo(el, { duration: 1.6, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+});
+
+/* delegation for all .data-route links */
+document.addEventListener('click', (e) => {
+  // Handle nav-cta button → open CTA modal
+  const navCtaLink = e.target.closest('.nav-cta, #navConsulenzaBtn, .msc-form');
+  if (navCtaLink && navCtaLink.id !== 'ctaButton') {
+    e.preventDefault();
+    // chiudi mobile menu se aperto
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navToggle = document.getElementById('navToggle');
+    if (mobileMenu) mobileMenu.classList.remove('open');
+    if (navToggle) navToggle.textContent = 'Menu';
+    // apri il modal usando il bottone come sorgente animazione
+    if (window.openCtaModal) {
+      window.openCtaModal(navCtaLink);
+    }
+    return;
+  }
+  
+  const link = e.target.closest('a[data-route]');
+  if (!link) return;
+  e.preventDefault();
+  const route = link.dataset.route;
+  const anchor = link.dataset.anchor || null;
+  // close mobile menu if open
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navToggle = document.getElementById('navToggle');
+  if (mobileMenu) mobileMenu.classList.remove('open');
+  if (navToggle) navToggle.textContent = 'Menu';
+  document.body.style.overflow = '';
+  // update hash for shareability
+  const newHash = anchor ? `#/${route}#${anchor}` : `#/${route}`;
+  if (window.location.hash !== newHash) {
+    window.history.pushState(null, '', newHash);
+  }
+  navigateTo(route, anchor);
+});
 
 /* ============================================
    SCROLL PROGRESS + NAV SCROLLED
@@ -10203,181 +11485,14 @@ function initScreening() {
   goToStep(1);
 }
 
-
-/* ============================================
-   PAGE TRANSITION — multi-page version
-   ============================================ */
-const PAGE_META = {
-  'index.html':        { num: '01', title: 'Home' },
-  'studio.html':       { num: '02', title: 'Studio' },
-  'soluzioni.html':    { num: '03', title: 'Soluzioni' },
-  'metodo.html':       { num: '04', title: 'Metodo' },
-  'casi.html':         { num: '05', title: 'Casi' },
-  'osservatorio.html': { num: '06', title: 'Osservatorio' },
-  'faq.html':          { num: '07', title: 'FAQ' },
-};
-
-let isNavigating = false;
-
-function navigateToPage(href) {
-  if (isNavigating) return;
-  isNavigating = true;
-
-  const filename = href.split('/').pop() || 'index.html';
-  const meta = PAGE_META[filename] || { num: '01', title: '' };
-
-  const overlay = document.getElementById('pageTransition');
-  if (!overlay || typeof gsap === 'undefined') {
-    window.location.href = href;
-    return;
-  }
-
-  const tNum = document.getElementById('transitionNum');
-  const tTitle = document.getElementById('transitionTitle');
-  if (tNum) tNum.textContent = '— ' + meta.num + ' / 07 —';
-  if (tTitle) tTitle.innerHTML = '<em>' + meta.title + '</em>';
-
-  const content = overlay.querySelector('.transition-content');
-  const line = overlay.querySelector('.transition-line');
-
-  overlay.classList.add('active');
-  overlay.style.transform = 'translateY(100%)';
-  if (content) { content.style.opacity = '0'; content.style.transform = 'translateY(30px)'; }
-  if (line) line.style.transform = 'scaleX(0)';
-
-  const tl = gsap.timeline({
-    onComplete: () => {
-      window.location.href = href;
-    }
-  });
-
-  tl.to(overlay, { y: 0, duration: 0.7, ease: 'power3.inOut' })
-    .to(content, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '-=0.2')
-    .to(line, { scaleX: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3')
-    .add(() => {}, '+=0.3'); // brief pause then navigate
-}
-
-/* Exit transition on page load */
-function exitTransition() {
-  const overlay = document.getElementById('pageTransition');
-  if (!overlay) return;
-
-  // Check if we should animate out (came from another page)
-  const cameFromTransition = sessionStorage.getItem('page-transition-active');
-  if (!cameFromTransition) {
-    overlay.style.display = 'none';
-    return;
-  }
-  sessionStorage.removeItem('page-transition-active');
-
-  // Show overlay, then animate out
-  overlay.classList.add('active');
-  overlay.style.transform = 'translateY(0)';
-
-  const content = overlay.querySelector('.transition-content');
-  const line = overlay.querySelector('.transition-line');
-  if (content) { content.style.opacity = '1'; content.style.transform = 'translateY(0)'; }
-  if (line) line.style.transform = 'scaleX(1)';
-
-  if (typeof gsap === 'undefined') {
-    overlay.style.display = 'none';
-    return;
-  }
-
-  const tl = gsap.timeline();
-  tl.to(content, { opacity: 0, y: -30, duration: 0.3, ease: 'power2.in', delay: 0.15 })
-    .set(line, { scaleX: 0 })
-    .to(overlay, { y: '-100%', duration: 0.7, ease: 'power3.inOut' }, '-=0.1')
-    .set(overlay, { display: 'none', onComplete: () => overlay.classList.remove('active') });
-}
-
-/* Navigation link handler */
-document.addEventListener('click', (e) => {
-  // Handle consulenza modal triggers
-  const consulenzaTrigger = e.target.closest('.nav-cta, #navConsulenzaBtn, .msc-form, .open-consulenza');
-  if (consulenzaTrigger) {
-    e.preventDefault();
-    // close mobile menu
-    const mobileMenu = document.getElementById('mobileMenu');
-    const navToggle = document.getElementById('navToggle');
-    if (mobileMenu) mobileMenu.classList.remove('open');
-    if (navToggle) navToggle.textContent = 'Menu';
-    document.body.style.overflow = '';
-    if (window.openCtaModal) window.openCtaModal(consulenzaTrigger);
-    return;
-  }
-
-  // Handle page navigation links
-  const link = e.target.closest('a[data-page]');
-  if (!link) return;
-
-  const href = link.getAttribute('href');
-  if (!href || href === '#') return;
-
-  // Check if it's the current page
-  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-  const targetFile = href.split('#')[0] || currentFile;
-
-  if (targetFile === currentFile) {
-    // Same page - handle anchor
-    const hash = href.split('#')[1];
-    if (hash) {
-      e.preventDefault();
-      const el = document.getElementById(hash);
-      if (el) {
-        if (window.lenis) {
-          window.lenis.scrollTo(el, { duration: 1.6, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-        } else {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    }
-    return;
-  }
-
-  // Different page - animate transition
-  e.preventDefault();
-  // close mobile menu
-  const mobileMenu = document.getElementById('mobileMenu');
-  const navToggle = document.getElementById('navToggle');
-  if (mobileMenu) mobileMenu.classList.remove('open');
-  if (navToggle) navToggle.textContent = 'Menu';
-  document.body.style.overflow = '';
-
-  sessionStorage.setItem('page-transition-active', '1');
-  navigateToPage(href);
-});
-
-/* Also handle the floating CTA (homepage) */
-const floatingCta = document.getElementById('floatingCta');
-if (floatingCta) {
-  floatingCta.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (window.openCtaModal) window.openCtaModal(floatingCta);
-  });
-}
-
-/* ============================================
-   SCROLL PROGRESS + NAV SCROLLED
-   ============================================ */
-const scrollProgress = document.getElementById('scrollProgress');
-const nav = document.getElementById('nav');
-function updateScroll() {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  const p = h > 0 ? (window.scrollY / h) * 100 : 0;
-  if (scrollProgress) scrollProgress.style.width = p + '%';
-  if (nav) {
-    if (window.scrollY > 50) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }
-}
-window.addEventListener('scroll', updateScroll, { passive: true });
-
 /* ============================================
    INIT
    ============================================ */
 function init() {
-  exitTransition();
+  const route = getRouteFromHash();
+  const anchor = getAnchorFromHash();
+  switchPage(route, anchor);
+  
   initRevealObserver();
   initCounters();
   initManifesto();
@@ -10402,15 +11517,7 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
-
 </script>
-
-<!-- ============================================
-     IUBENDA — Privacy Controls & Cookie Solution
-     Caricato in <head> per garantire il blocco preventivo dei cookie
-     prima che qualsiasi altro script (Google Fonts, Analytics, etc.) si attivi.
-     ============================================ -->
-<script type="text/javascript" src="https://embeds.iubenda.com/widgets/f2745009-07f1-47ee-884b-44b10cea52b8.js"></script>
 
 <!-- ============================================
      IUBENDA — loader per gli embed di Privacy/Cookie Policy
