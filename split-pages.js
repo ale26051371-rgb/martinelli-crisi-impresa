@@ -595,6 +595,8 @@ const iubendaHtml = iubendaHeadHtml + '\n\n' + iubendaFooterHtml;
 // === UPDATE INTERNAL LINKS IN PAGE CONTENT ===
 function updateLinks(html) {
   // Replace hash routes with file links
+  // Per i link #/home#contatti: aggiungi open-consulenza alla class esistente o creane una
+  html = html.replace(/href="#\/home#contatti"([^>]*?)class="([^"]*)"/g, 'href="#"$1class="$2 open-consulenza"');
   html = html.replace(/href="#\/home#contatti"/g, 'href="#" class="open-consulenza"');
   html = html.replace(/href="#\/home"/g, 'href="index.html"');
   html = html.replace(/href="#\/studio"/g, 'href="studio.html"');
