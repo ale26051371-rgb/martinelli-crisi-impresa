@@ -9262,21 +9262,7 @@ if (floatingCta) {
   });
 }
 
-/* ============================================
-   SCROLL PROGRESS + NAV SCROLLED
-   ============================================ */
-const scrollProgress = document.getElementById('scrollProgress');
-const nav = document.getElementById('nav');
-function updateScroll() {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  const p = h > 0 ? (window.scrollY / h) * 100 : 0;
-  if (scrollProgress) scrollProgress.style.width = p + '%';
-  if (nav) {
-    if (window.scrollY > 50) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }
-}
-window.addEventListener('scroll', updateScroll, { passive: true });
+/* scrollProgress + updateScroll already declared above from original JS */
 
 /* ============================================
    INIT

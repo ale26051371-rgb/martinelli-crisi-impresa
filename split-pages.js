@@ -8,7 +8,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const src = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf-8');
+const srcFile = fs.existsSync(path.join(__dirname, 'index-spa.html')) ? 'index-spa.html' : 'index.html';
+const src = fs.readFileSync(path.join(__dirname, srcFile), 'utf-8');
 const lines = src.split('\n');
 
 // === PAGE DEFINITIONS ===
@@ -491,21 +492,7 @@ if (floatingCta) {
   });
 }
 
-/* ============================================
-   SCROLL PROGRESS + NAV SCROLLED
-   ============================================ */
-const scrollProgress = document.getElementById('scrollProgress');
-const nav = document.getElementById('nav');
-function updateScroll() {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  const p = h > 0 ? (window.scrollY / h) * 100 : 0;
-  if (scrollProgress) scrollProgress.style.width = p + '%';
-  if (nav) {
-    if (window.scrollY > 50) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }
-}
-window.addEventListener('scroll', updateScroll, { passive: true });
+/* scrollProgress + updateScroll already declared above from original JS */
 
 /* ============================================
    INIT
