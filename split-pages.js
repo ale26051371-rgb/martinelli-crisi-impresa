@@ -297,24 +297,49 @@ function getModifiedCss() {
   css = css.replace(/\.page \{ display: none; \}/, '/* page always visible */');
   css = css.replace(/\.page\.active \{ display: block; animation: pageEnter[^}]+\}/, '');
 
+  // Override page transition: starts VISIBLE to prevent flash between pages.
+  // JS will hide it instantly (no transition) or animate it out.
+  css = css.replace(
+    /\.page-transition \{[^}]+\}/,
+    `.page-transition {
+  position: fixed; inset: 0;
+  background: var(--navy-deep);
+  z-index: 500;
+  transform: translateY(0);
+  pointer-events: all;
+  display: flex;
+  align-items: center; justify-content: center;
+  color: var(--ivory);
+}`
+  );
+
+  // Also make transition-content visible by default
+  css = css.replace(
+    /\.transition-content \{[^}]*opacity: 0;[^}]*\}/,
+    `.transition-content {
+  text-align: center;
+  opacity: 1;
+  transform: translateY(0);
+  padding: 0 24px;
+}`
+  );
+
+  // Make transition-line visible by default
+  css = css.replace(
+    /\.transition-line \{[^}]*transform: scaleX\(0\);[^}]*\}/,
+    `.transition-line {
+  width: 80px; height: 1px;
+  background: var(--champagne);
+  margin: 36px auto 0;
+  transform: scaleX(1);
+}`
+  );
+
   // Add: page is always visible block
   css += `
 
 /* === MULTI-PAGE: page always visible === */
 .page { display: block; animation: pageEnter 0.5s var(--ease-out); }
-
-/* === PAGE TRANSITION: starts visible on load (animates OUT) === */
-.page-transition.exit-on-load {
-  transform: translateY(0);
-  pointer-events: all;
-}
-.page-transition.exit-on-load .transition-content {
-  opacity: 1;
-  transform: translateY(0);
-}
-.page-transition.exit-on-load .transition-line {
-  transform: scaleX(1);
-}
 `;
   return css;
 }
@@ -403,14 +428,16 @@ function navigateToPage(href) {
 }
 
 /* --- PHASE 2: pagina destinazione → overlay ESCE --- */
+/* L'overlay è VISIBILE via CSS di default (previene il flash bianco).
+   Questa funzione lo nasconde subito oppure lo anima via. */
 function exitTransition() {
   const overlay = document.getElementById('pageTransition');
   if (!overlay) return;
 
   const cameFromTransition = sessionStorage.getItem('page-transition-active');
   if (!cameFromTransition) {
-    // Nessuna transizione: nascondi subito
-    overlay.style.display = 'none';
+    // Prima visita o refresh: nascondi SUBITO senza animazione
+    overlay.style.cssText = 'display:none !important';
     return;
   }
   sessionStorage.removeItem('page-transition-active');
@@ -425,24 +452,15 @@ function exitTransition() {
   sessionStorage.removeItem('transition-num');
   sessionStorage.removeItem('transition-title');
 
-  // Overlay parte visibile (copre la pagina), poi esce
-  overlay.style.display = 'flex';
-  overlay.classList.add('active');
-
-  const content = overlay.querySelector('.transition-content');
-  const line = overlay.querySelector('.transition-line');
-
   if (typeof gsap === 'undefined') {
-    overlay.style.display = 'none';
+    overlay.style.cssText = 'display:none !important';
     return;
   }
 
-  // Stato iniziale: overlay fermo, titolo visibile
-  gsap.set(overlay, { y: 0 });
-  gsap.set(content, { opacity: 1, y: 0 });
-  gsap.set(line, { scaleX: 1 });
+  // Overlay già visibile via CSS — anima l'uscita
+  const content = overlay.querySelector('.transition-content');
+  const line = overlay.querySelector('.transition-line');
 
-  // Animazione uscita: identica all'originale
   const tl = gsap.timeline();
   tl.to(content, { opacity: 0, y: -30, duration: 0.3, ease: 'power2.in' }, '+=0.2')
     .set(line, { scaleX: 0 })
@@ -675,8 +693,15 @@ ${getModifiedCss()}
 
 ${page.id === 'home' ? buildFloatingCta() : ''}
 
-<!-- Page transition overlay -->
+<!-- Page transition overlay (visibile via CSS per prevenire flash) -->
 ${buildTransitionOverlay(page.id)}
+<script>
+/* Inline: nascondi overlay SUBITO se non c'è transizione in corso.
+   Eseguito prima del DOM completo = zero flash. */
+if (!sessionStorage.getItem('page-transition-active')) {
+  document.getElementById('pageTransition').style.cssText = 'display:none !important';
+}
+</script>
 
 <!-- Navigation -->
 ${buildNav(page.id, page.theme)}
