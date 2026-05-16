@@ -7010,10 +7010,10 @@ body::before {
 
 
 <!-- Page transition overlay -->
-<div class="page-transition active" id="pageTransition">
+<div class="page-transition" id="pageTransition">
   <div class="transition-content">
-    <div class="transition-num" id="transitionNum"></div>
-    <div class="transition-title" id="transitionTitle"></div>
+    <div class="transition-num" id="transitionNum">— 07 / 07 —</div>
+    <div class="transition-title" id="transitionTitle"><em>Faq</em></div>
     <div class="transition-line"></div>
   </div>
 </div>
@@ -9169,6 +9169,9 @@ function initScreening() {
 
 /* ============================================
    PAGE TRANSITION — multi-page version
+   Replica fedelmente la transizione originale SPA:
+   ENTER: overlay sale da sotto → mostra titolo → pausa
+   EXIT:  titolo sfuma → overlay esce verso l'alto
    ============================================ */
 const PAGE_META = {
   'index.html':        { num: '01', title: 'Home' },
@@ -9182,6 +9185,7 @@ const PAGE_META = {
 
 let isNavigating = false;
 
+/* --- PHASE 1: pagina sorgente → overlay ENTRA, poi naviga --- */
 function navigateToPage(href) {
   if (isNavigating) return;
   isNavigating = true;
@@ -9195,63 +9199,85 @@ function navigateToPage(href) {
     return;
   }
 
+  // Popola titolo della pagina DI DESTINAZIONE
   const tNum = document.getElementById('transitionNum');
   const tTitle = document.getElementById('transitionTitle');
   if (tNum) tNum.textContent = '— ' + meta.num + ' / 07 —';
   if (tTitle) tTitle.innerHTML = '<em>' + meta.title + '</em>';
 
+  // Salva in sessionStorage per la pagina di arrivo
+  sessionStorage.setItem('transition-num', '— ' + meta.num + ' / 07 —');
+  sessionStorage.setItem('transition-title', '<em>' + meta.title + '</em>');
+
   const content = overlay.querySelector('.transition-content');
   const line = overlay.querySelector('.transition-line');
 
+  // Reset stato iniziale
+  gsap.set(overlay, { y: '100%', display: 'flex' });
+  gsap.set(content, { opacity: 0, y: 30 });
+  gsap.set(line, { scaleX: 0 });
   overlay.classList.add('active');
-  overlay.style.transform = 'translateY(100%)';
-  if (content) { content.style.opacity = '0'; content.style.transform = 'translateY(30px)'; }
-  if (line) line.style.transform = 'scaleX(0)';
 
   const tl = gsap.timeline({
-    onComplete: () => {
-      window.location.href = href;
-    }
+    onComplete: () => { window.location.href = href; }
   });
 
+  // Tempi identici all'originale
   tl.to(overlay, { y: 0, duration: 0.7, ease: 'power3.inOut' })
     .to(content, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '-=0.2')
     .to(line, { scaleX: 1, duration: 0.5, ease: 'power2.out' }, '-=0.3')
-    .add(() => {}, '+=0.3'); // brief pause then navigate
+    .add(() => {}, '+=0.2'); // pausa per leggere il titolo, poi naviga
 }
 
-/* Exit transition on page load */
+/* --- PHASE 2: pagina destinazione → overlay ESCE --- */
 function exitTransition() {
   const overlay = document.getElementById('pageTransition');
   if (!overlay) return;
 
-  // Check if we should animate out (came from another page)
   const cameFromTransition = sessionStorage.getItem('page-transition-active');
   if (!cameFromTransition) {
+    // Nessuna transizione: nascondi subito
     overlay.style.display = 'none';
     return;
   }
   sessionStorage.removeItem('page-transition-active');
 
-  // Show overlay, then animate out
+  // Ripristina titolo salvato dalla pagina sorgente
+  const savedNum = sessionStorage.getItem('transition-num');
+  const savedTitle = sessionStorage.getItem('transition-title');
+  const tNum = document.getElementById('transitionNum');
+  const tTitle = document.getElementById('transitionTitle');
+  if (savedNum && tNum) tNum.textContent = savedNum;
+  if (savedTitle && tTitle) tTitle.innerHTML = savedTitle;
+  sessionStorage.removeItem('transition-num');
+  sessionStorage.removeItem('transition-title');
+
+  // Overlay parte visibile (copre la pagina), poi esce
+  overlay.style.display = 'flex';
   overlay.classList.add('active');
-  overlay.style.transform = 'translateY(0)';
 
   const content = overlay.querySelector('.transition-content');
   const line = overlay.querySelector('.transition-line');
-  if (content) { content.style.opacity = '1'; content.style.transform = 'translateY(0)'; }
-  if (line) line.style.transform = 'scaleX(1)';
 
   if (typeof gsap === 'undefined') {
     overlay.style.display = 'none';
     return;
   }
 
+  // Stato iniziale: overlay fermo, titolo visibile
+  gsap.set(overlay, { y: 0 });
+  gsap.set(content, { opacity: 1, y: 0 });
+  gsap.set(line, { scaleX: 1 });
+
+  // Animazione uscita: identica all'originale
   const tl = gsap.timeline();
-  tl.to(content, { opacity: 0, y: -30, duration: 0.3, ease: 'power2.in', delay: 0.15 })
+  tl.to(content, { opacity: 0, y: -30, duration: 0.3, ease: 'power2.in' }, '+=0.2')
     .set(line, { scaleX: 0 })
     .to(overlay, { y: '-100%', duration: 0.7, ease: 'power3.inOut' }, '-=0.1')
-    .set(overlay, { display: 'none', onComplete: () => overlay.classList.remove('active') });
+    .set(overlay, {
+      display: 'none',
+      onComplete: () => overlay.classList.remove('active')
+    });
 }
 
 /* Navigation link handler */
@@ -9319,6 +9345,20 @@ if (floatingCta) {
     if (window.openCtaModal) window.openCtaModal(floatingCta);
   });
 }
+
+/* Prefetch pagine al hover per caricamento istantaneo */
+const prefetched = new Set();
+document.addEventListener('mouseover', (e) => {
+  const link = e.target.closest('a[data-page]');
+  if (!link) return;
+  const href = link.getAttribute('href');
+  if (!href || href === '#' || prefetched.has(href)) return;
+  prefetched.add(href);
+  const prefetchLink = document.createElement('link');
+  prefetchLink.rel = 'prefetch';
+  prefetchLink.href = href;
+  document.head.appendChild(prefetchLink);
+}, { passive: true });
 
 /* scrollProgress + updateScroll already declared above from original JS */
 
