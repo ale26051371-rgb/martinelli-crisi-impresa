@@ -8,19 +8,19 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-<title>Osservatorio | Martinelli — Crisi d'Impresa</title>
-<meta name="description" content="Pubblicazioni, rassegna stampa e contributi dottrinali sulla crisi d'impresa e il Codice della Crisi.">
+<title>Contatti | Martinelli — Crisi d'Impresa</title>
+<meta name="description" content="Contattaci per una consulenza riservata sulla crisi d'impresa. Telefono, email, sedi a Roma e Milano. Rispondiamo entro 24 ore.">
 
 <!-- Canonical & Open Graph -->
-<link rel="canonical" href="https://www.crisidimpresa-martinelli.com/osservatorio.html">
+<link rel="canonical" href="https://www.crisidimpresa-martinelli.com/contatti.html">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.crisidimpresa-martinelli.com/osservatorio.html">
-<meta property="og:title" content="Osservatorio | Martinelli — Crisi d'Impresa">
-<meta property="og:description" content="Pubblicazioni, rassegna stampa e contributi dottrinali sulla crisi d'impresa e il Codice della Crisi.">
+<meta property="og:url" content="https://www.crisidimpresa-martinelli.com/contatti.html">
+<meta property="og:title" content="Contatti | Martinelli — Crisi d'Impresa">
+<meta property="og:description" content="Contattaci per una consulenza riservata sulla crisi d'impresa. Rispondiamo entro 24 ore.">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Osservatorio | Martinelli — Crisi d'Impresa">
-<meta name="twitter:description" content="Pubblicazioni, rassegna stampa e contributi dottrinali sulla crisi d'impresa e il Codice della Crisi.">
+<meta name="twitter:title" content="Contatti | Martinelli — Crisi d'Impresa">
+<meta name="twitter:description" content="Contattaci per una consulenza riservata. Rispondiamo entro 24 ore.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -6987,6 +6987,181 @@ body::before {
 /* === MULTI-PAGE: page always visible === */
 .page { display: block; animation: pageEnter 0.5s var(--ease-out); }
 
+
+/* ============================================
+   CONTATTI PAGE
+   ============================================ */
+.contact-page-hero {
+  background: var(--navy-deep);
+  color: var(--ivory);
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.contact-page-ornament {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-page-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-page-title {
+  font-family: var(--serif);
+  font-weight: 320;
+  font-size: clamp(42px, 5.5vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  font-variation-settings: "opsz" 144;
+}
+.contact-page-title em {
+  font-family: var(--serif-italic);
+  color: var(--champagne);
+  font-weight: 400;
+  font-style: italic;
+}
+.contact-page-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(245, 241, 234, 0.72);
+  max-width: 480px;
+}
+.contact-page-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.contact-page-info-card {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--navy-line);
+}
+.contact-page-info-card:first-child { border-top: 1px solid var(--navy-line); }
+.contact-page-info-icon {
+  width: 42px; height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  border-radius: 50%;
+  color: var(--champagne);
+}
+.contact-page-info-icon svg { width: 18px; height: 18px; }
+.contact-page-info-label {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.contact-page-info-value {
+  font-family: var(--serif);
+  font-weight: 380;
+  font-size: 20px;
+  color: var(--ivory);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 72;
+  display: block;
+  margin-bottom: 4px;
+  transition: color 0.3s var(--ease);
+}
+a.contact-page-info-value:hover { color: var(--champagne); }
+.contact-page-info-note {
+  font-size: 13px;
+  color: rgba(245, 241, 234, 0.5);
+}
+/* FORM SECTION */
+.contact-page-form-section {
+  background: var(--navy-deep);
+  color: var(--ivory);
+  padding: 0 0 140px;
+}
+.contact-page-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: start;
+}
+.contact-page-form-title {
+  font-family: var(--serif);
+  font-weight: 320;
+  font-size: clamp(36px, 4vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  font-variation-settings: "opsz" 144;
+}
+.contact-page-form-title em {
+  font-family: var(--serif-italic);
+  color: var(--champagne);
+  font-weight: 400;
+  font-style: italic;
+}
+.contact-page-form-desc {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: rgba(245, 241, 234, 0.72);
+  max-width: 420px;
+  margin-bottom: 44px;
+}
+.contact-page-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.contact-page-feature {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--navy-line);
+}
+.contact-page-feature:last-child { border-bottom: 1px solid var(--navy-line); }
+.contact-page-feature-num {
+  font-family: var(--serif-italic);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--champagne);
+}
+.contact-page-feature-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--ivory);
+  margin-bottom: 3px;
+  font-variation-settings: "opsz" 72;
+}
+.contact-page-feature-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(245, 241, 234, 0.55);
+}
+
+@media (max-width: 1024px) {
+  .contact-page-hero-grid, .contact-page-form-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .contact-page-hero { padding: 140px 0 80px; }
+}
+@media (max-width: 640px) {
+  .contact-page-hero { padding: 120px 0 60px; }
+  .contact-page-form-section { padding-bottom: 100px; }
+  .contact-page-title { margin-bottom: 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -6999,8 +7174,8 @@ body::before {
 <!-- Page transition overlay (visibile via CSS per prevenire flash) -->
 <div class="page-transition" id="pageTransition">
   <div class="transition-content">
-    <div class="transition-num" id="transitionNum">— 06 / 07 —</div>
-    <div class="transition-title" id="transitionTitle"><em>Osservatorio</em></div>
+    <div class="transition-num" id="transitionNum">— Contatti —</div>
+    <div class="transition-title" id="transitionTitle"><em>Contatti</em></div>
     <div class="transition-line"></div>
   </div>
 </div>
@@ -7013,7 +7188,7 @@ if (!sessionStorage.getItem('page-transition-active')) {
 </script>
 
 <!-- Navigation -->
-<nav class="nav theme-light" id="nav">
+<nav class="nav theme-dark" id="nav">
   <a href="index.html" class="nav-logo" aria-label="Martinelli — Crisi d'Impresa">
     <i class="logo-full" role="img"
        style="-webkit-mask-image: url('images/mask_01.png'); mask-image: url('images/mask_01.png'); -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center;"></i>
@@ -7024,7 +7199,7 @@ if (!sessionStorage.getItem('page-transition-active')) {
     <li><a href="soluzioni.html" data-page="soluzioni">Soluzioni</a></li>
     <li><a href="metodo.html" data-page="metodo">Metodo</a></li>
     <li><a href="casi.html" data-page="casi">Casi</a></li>
-    <li><a href="osservatorio.html" data-page="osservatorio" class="active">Osservatorio</a></li>
+    <li><a href="osservatorio.html" data-page="osservatorio">Osservatorio</a></li>
     <li><a href="faq.html" data-page="faq">FAQ</a></li>
     <li><a href="#" class="nav-cta" id="navConsulenzaBtn">Consulenza</a></li>
   </ul>
@@ -7148,27 +7323,57 @@ if (!sessionStorage.getItem('page-transition-active')) {
 
 <!-- Page content -->
 <main class="app" id="app">
-<section class="page active" data-page="osservatorio" data-theme="light">
+<section class="page active" data-page="contatti" data-theme="dark">
 
-<section class="obs-hero">
+<!-- HERO CONTATTI -->
+<section class="contact-page-hero">
+  <div class="contact-page-ornament"></div>
   <div class="container">
-    <div class="section-label reveal">Osservatorio Crisi e Insolvenza <span class="section-label-num">— 06 / 07</span></div>
-    <div class="obs-hero-grid">
-      <h1 class="obs-hero-title reveal">Pubblichiamo<br>quello che <em>studiamo</em>.</h1>
-      <div class="obs-hero-side reveal">
-        <p class="obs-hero-desc">Articoli divulgativi sulla stampa nazionale, commenti tecnici a sentenze rilevanti, paper scientifici. Un osservatorio permanente sulla crisi d'impresa, sui dati di sistema e sull'evoluzione del Codice della Crisi.</p>
-        <div class="obs-hero-stats">
-          <div class="obs-stat">
-            <div class="obs-stat-num">16</div>
-            <div class="obs-stat-lbl">Articoli su quotidiani</div>
+    <div class="section-label reveal" style="color: var(--stone-light);">Contatti</div>
+    <div class="contact-page-hero-grid">
+      <div class="reveal">
+        <h1 class="contact-page-title">Parliamo della<br>tua <em>situazione</em>.</h1>
+        <p class="contact-page-desc">Il primo colloquio è riservato e senza impegno. Analizziamo la tua posizione debitoria, individuiamo gli strumenti percorribili e definiamo insieme il percorso migliore.</p>
+      </div>
+      <div class="contact-page-infos reveal">
+        <div class="contact-page-info-card">
+          <div class="contact-page-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <div class="obs-stat">
-            <div class="obs-stat-num">5</div>
-            <div class="obs-stat-lbl">Paper scientifici</div>
+          <div>
+            <div class="contact-page-info-label">Telefono diretto</div>
+            <a href="tel:+393297575459" class="contact-page-info-value">+39 329 757 5459</a>
+            <div class="contact-page-info-note">Risponde un partner, non un centralino.</div>
           </div>
-          <div class="obs-stat">
-            <div class="obs-stat-num">2026</div>
-            <div class="obs-stat-lbl">Ultimo aggiornamento</div>
+        </div>
+        <div class="contact-page-info-card">
+          <div class="contact-page-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="contact-page-info-label">Email</div>
+            <a href="mailto:martinelli.crisi@gmail.com" class="contact-page-info-value">martinelli.crisi@gmail.com</a>
+            <div class="contact-page-info-note">Rispondiamo entro 24 ore lavorative.</div>
+          </div>
+        </div>
+        <div class="contact-page-info-card">
+          <div class="contact-page-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-page-info-label">Sedi</div>
+            <div class="contact-page-info-value">Roma &middot; Milano</div>
+            <div class="contact-page-info-note">Operatività su tutto il territorio nazionale.</div>
+          </div>
+        </div>
+        <div class="contact-page-info-card">
+          <div class="contact-page-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-page-info-label">Orari</div>
+            <div class="contact-page-info-value">Lun — Ven, 9:00 — 19:00</div>
+            <div class="contact-page-info-note">Disponibilità su appuntamento anche il sabato.</div>
           </div>
         </div>
       </div>
@@ -7176,465 +7381,89 @@ if (!sessionStorage.getItem('page-transition-active')) {
   </div>
 </section>
 
-<!-- Strip testate -->
-<section class="obs-press-strip">
+<!-- FORM SECTION -->
+<section class="contact-page-form-section">
   <div class="container">
-    <p class="obs-press-label">Le testate e le riviste su cui pubblichiamo</p>
-    <div class="obs-press-logos">
-      <span class="obs-press-logo">Italia<em>Oggi</em></span>
-      <span class="obs-press-logo">Italia<em>Oggi7</em></span>
-      <span class="obs-press-logo">Capital<small>Class Editori</small></span>
-      <span class="obs-press-logo"><em>IUS</em> Lefebvre Giuffrè</span>
-      <span class="obs-press-logo">Insolvency Observatory<small>University</small></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     CAPITOLO 01 — RASSEGNA STAMPA
-     ============================================ -->
-<section class="obs-chapter">
-  <div class="container">
-    <div class="obs-chapter-head reveal">
-      <div class="obs-chapter-num">01</div>
-      <div class="obs-chapter-meta">
-        <div class="obs-chapter-label">Capitolo primo — Rassegna stampa</div>
-        <h2 class="obs-chapter-title">Articoli sui<br><em>quotidiani nazionali</em>.</h2>
-        <p class="obs-chapter-desc">Sedici contributi pubblicati negli ultimi mesi su <em>ItaliaOggi</em>, <em>ItaliaOggi7</em> e nella sezione <em>Capital — Diritto &amp; Fisco</em>. Analisi dei dati Unioncamere e Cribis, commenti alle decisioni dei tribunali, monitoraggio della transazione fiscale e delle procedure concorsuali, scenari macro. Filtra per area tematica.</p>
+    <div class="contact-page-form-grid">
+      <div class="contact-page-form-side reveal">
+        <h2 class="contact-page-form-title">Richiedi una<br><em>consulenza</em>.</h2>
+        <p class="contact-page-form-desc">Compila il modulo: un partner dello studio ti contatterà personalmente per fissare il colloquio preliminare.</p>
+        <div class="contact-page-features">
+          <div class="contact-page-feature">
+            <div class="contact-page-feature-num">i.</div>
+            <div>
+              <div class="contact-page-feature-title">Riservatezza assoluta</div>
+              <div class="contact-page-feature-desc">Nessuna esposizione pubblica se non strettamente necessaria.</div>
+            </div>
+          </div>
+          <div class="contact-page-feature">
+            <div class="contact-page-feature-num">ii.</div>
+            <div>
+              <div class="contact-page-feature-title">Risponde un partner</div>
+              <div class="contact-page-feature-desc">Mai filtri commerciali o assistenti junior.</div>
+            </div>
+          </div>
+          <div class="contact-page-feature">
+            <div class="contact-page-feature-num">iii.</div>
+            <div>
+              <div class="contact-page-feature-title">Analisi gratuita</div>
+              <div class="contact-page-feature-desc">Il primo colloquio e la valutazione preliminare sono senza impegno.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row-split">
+            <div class="form-row">
+              <label class="form-label" for="f-nome">Nome e cognome</label>
+              <input type="text" class="form-input" id="f-nome" placeholder="Mario Rossi" required>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="f-tel">Telefono</label>
+              <input type="tel" class="form-input" id="f-tel" placeholder="+39 ..." required>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="f-email">Email</label>
+            <input type="email" class="form-input" id="f-email" placeholder="mario.rossi@esempio.it" required>
+          </div>
+          <div class="form-row-split">
+            <div class="form-row">
+              <label class="form-label" for="f-profilo">Profilo</label>
+              <select class="form-select" id="f-profilo">
+                <option>Impresa</option>
+                <option>Professionista</option>
+                <option>Persona fisica</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="f-esp">Esposizione indicativa</label>
+              <select class="form-select" id="f-esp">
+                <option>Fino a &euro; 100.000</option>
+                <option>&euro; 100.000 — 500.000</option>
+                <option>&euro; 500.000 — 2M</option>
+                <option>Oltre &euro; 2M</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="f-msg">Descrivi brevemente la situazione</label>
+            <textarea class="form-textarea" id="f-msg" placeholder="Tipologia debiti, urgenze, azioni in corso..."></textarea>
+          </div>
+          <button class="btn btn-primary form-submit" type="submit">Richiedi consulenza riservata <span class="btn-arrow">&rarr;</span></button>
+          <p class="form-consent">Inviando la richiesta dichiari di aver letto l'<a href="https://www.iubenda.com/privacy-policy/40475408" class="iubenda-white iubenda-noiframe iubenda-embed">informativa privacy</a>. I dati sono trattati con riservatezza assoluta e non condivisi con terzi.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">&check;</div>
+          <h3>Richiesta ricevuta.</h3>
+          <p>Un partner ti contatterà entro 24 ore per fissare il colloquio preliminare riservato.</p>
+        </div>
       </div>
     </div>
-
-    <div class="obs-filters reveal" id="obsFilters">
-      <button class="obs-filter active" data-filter="all">Tutti <span class="obs-filter-count">16</span></button>
-      <button class="obs-filter" data-filter="cnc">Composizione negoziata <span class="obs-filter-count">3</span></button>
-      <button class="obs-filter" data-filter="fiscale">Transazione fiscale <span class="obs-filter-count">3</span></button>
-      <button class="obs-filter" data-filter="npl">Crediti deteriorati &amp; NPL <span class="obs-filter-count">2</span></button>
-      <button class="obs-filter" data-filter="procedure">Procedure &amp; normativa <span class="obs-filter-count">4</span></button>
-      <button class="obs-filter" data-filter="continuita">Continuità &amp; passaggio gen. <span class="obs-filter-count">1</span></button>
-      <button class="obs-filter" data-filter="macro">Scenario macro <span class="obs-filter-count">3</span></button>
-    </div>
-
-    <div class="obs-press-grid" id="obsPressGrid">
-
-      <!-- 00 — IN PRIMO PIANO: Risanamento, 10 errori — 11 maggio 2026 -->
-      <article class="obs-article obs-article-featured" data-cat="procedure">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi7</span>
-          <span class="obs-article-pin">In primo piano</span>
-          <img src="images/article_11maggio.jpg" alt="Risanamento, 10 errori da evitare — ItaliaOggi7 11 maggio 2026" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Procedure &amp; metodo</span>
-            <span class="obs-article-date">11 mag 2026</span>
-          </div>
-          <h3 class="obs-article-title">Risanamento, 10 errori da evitare.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi7</strong> — Un piano serio deve dimostrare come l'utile sarà prodotto.</p>
-          <p class="obs-article-abstract">Codice della Crisi e check-list della composizione negoziata esigono verificabilità e coerenza. Il piano deve essere un percorso logico che spiega — con rigore industriale e finanziario — perché l'azienda possa restare sul mercato e a quali condizioni. Dieci errori ricorrenti da intercettare prima della bocciatura: dalla confusione tra risanamento e dilazione del debito alla diagnosi statica, dall'ottimismo contabile alle proiezioni senza valutazione di tenuta, fino all'assenza di KPI di monitoraggio.</p>
-        </div>
-      </article>
-
-      <!-- 00 — Più ricchi ma risparmiano meno — 9 maggio 2026 -->
-      <article class="obs-article" data-cat="macro">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/article_9maggio.jpg" alt="Più ricchi ma risparmiano meno — ItaliaOggi 9 maggio 2026" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Scenario macro</span>
-            <span class="obs-article-date">9 mag 2026</span>
-          </div>
-          <h3 class="obs-article-title">Più ricchi ma risparmiano meno.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Il dato più interessante è il boom del risparmio gestito.</p>
-          <p class="obs-article-abstract">Il paradosso che emerge dai dati più recenti: gli italiani sono sempre più ricchi (attività finanziarie oltre 6.200 miliardi, +4,6% in dodici mesi) ma la propensione al risparmio torna a scendere. Cambia la struttura del risparmio: i depositi restano elevati (1.584 mld, +1,7%) ma calano in peso; crescono azioni e partecipazioni (+8%) e fondi comuni (+8,4%). Un Paese che si trasforma da accumulatore di liquidità a investitore.</p>
-        </div>
-      </article>
-
-      <!-- 01 — Fisco punta sul risanamento — 17 apr 2026 -->
-      <article class="obs-article" data-cat="fiscale">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_04.jpg" alt="Crisi d'impresa, il fisco punta sul risanamento" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Transazione fiscale</span>
-            <span class="obs-article-date">17 apr 2026</span>
-          </div>
-          <h3 class="obs-article-title">Crisi d'impresa, il fisco punta sul risanamento.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — La bozza di circolare delle Entrate crea una mappa organica.</p>
-          <p class="obs-article-abstract">L'Agenzia delle Entrate prepara un testo-guida unico orientato al risanamento più che alla liquidazione. Il commento ricostruisce il passaggio da "fallimento" a "liquidazione giudiziale" come scelta culturale: il Fisco non più solo creditore ma parte attiva del risanamento.</p>
-        </div>
-      </article>
-
-      <!-- 02 — Banca Progetto cartolarizzati — 17 apr 2026 -->
-      <article class="obs-article" data-cat="npl">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_05.jpg" alt="Banca Progetto: crediti per 2,1 mld cartolarizzati" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Crediti deteriorati</span>
-            <span class="obs-article-date">17 apr 2026</span>
-          </div>
-          <h3 class="obs-article-title">Banca Progetto: crediti per 2,1 mld cartolarizzati.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — L'operazione con AMCO che chiude l'amministrazione straordinaria.</p>
-          <p class="obs-article-abstract">Il caso Banca Progetto ricostruito nei dettagli tecnici: portafoglio NPL garantito MCC e SACE, ruolo di AMCO come investitore e servicer, effetti per le imprese debitrici. Un segnale di mercato sulla gestione industriale del credito deteriorato.</p>
-        </div>
-      </article>
-
-      <!-- 03 — Decollata transazione fiscale — 4 apr 2026 -->
-      <article class="obs-article" data-cat="fiscale">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">Capital — Diritto &amp; Fisco</span>
-          <img src="images/img_06.jpg" alt="Decollata la transazione fiscale" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Transazione fiscale</span>
-            <span class="obs-article-date">4 apr 2026</span>
-          </div>
-          <h3 class="obs-article-title">Decollata la transazione fiscale.</h3>
-          <p class="obs-article-source"><strong>Capital — Diritto &amp; Fisco</strong> — 39 accordi nei primi tre mesi del 2026.</p>
-          <p class="obs-article-abstract">Dopo mesi di stallo, la transazione fiscale nella composizione negoziata inizia a funzionare: 39 accordi sottoscritti, 4.411 istanze totali, oltre 32.000 lavoratori coinvolti. Un cambio culturale che vede il Fisco protagonista del salvataggio aziendale.</p>
-        </div>
-      </article>
-
-      <!-- 04 — Direttiva Insolvency II — 1 apr 2026 -->
-      <article class="obs-article" data-cat="procedure">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_07.jpg" alt="Ok alla II direttiva Insolvency, rafforzato il recupero crediti" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Normativa UE</span>
-            <span class="obs-article-date">1 apr 2026</span>
-          </div>
-          <h3 class="obs-article-title">Ok alla II direttiva Insolvency, rafforzato il recupero crediti.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Diritto e impresa.</p>
-          <p class="obs-article-abstract">L'Unione approva il pre-pack europeo: armonizzazione delle procedure concorsuali, rafforzamento dell'azione revocatoria, tracciamento dei beni. 33 mesi per il recepimento. Impatto sistemico atteso sulla giustizia elettronica e sulla comparabilità tra ordinamenti.</p>
-        </div>
-      </article>
-
-      <!-- 05 — Liquidazioni giudiziali — 3 mar 2026 -->
-      <article class="obs-article" data-cat="procedure">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_08.jpg" alt="Liquidazioni giudiziali col più. Frenata a fine 2025." loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Procedure concorsuali</span>
-            <span class="obs-article-date">3 mar 2026</span>
-          </div>
-          <h3 class="obs-article-title">Liquidazioni giudiziali col più. Crescita strutturale nel biennio.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Dati Cribis: commercio ed edilizia i più colpiti.</p>
-          <p class="obs-article-abstract">9.795 procedure annue (+30% sul 2023). Lombardia, Lazio e Piemonte in testa per numerosità; commercio (+45%), edilizia e servizi i settori più esposti. Nel quarto trimestre boom dei concordati preventivi (+75% YoY): rimodulazione strategica del tessuto produttivo.</p>
-        </div>
-      </article>
-
-      <!-- 06 — Crediti deteriorati a una svolta — 23 feb 2026 -->
-      <article class="obs-article" data-cat="npl">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi7</span>
-          <img src="images/img_09.jpg" alt="Crediti deteriorati a una svolta. Maxi-cessioni fuori dalla scena." loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Crediti deteriorati</span>
-            <span class="obs-article-date">23 feb 2026</span>
-          </div>
-          <h3 class="obs-article-title">Crediti deteriorati a una svolta. Maxi-cessioni fuori dalla scena.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi7</strong> — Le evoluzioni nelle inadempienze probabili.</p>
-          <p class="obs-article-abstract">51 mld € di NPL lordi, 27,8 mld in UTP (54,5%). Il mercato si sposta dalla pulizia straordinaria alla gestione "a valle": meno operatori, più specializzati, partnership continuative con gli originator. Le UTP richiedono capacità negoziale e padronanza degli strumenti del CCII.</p>
-        </div>
-      </article>
-
-      <!-- 07 — Private equity +30% — 16 gen 2026 -->
-      <article class="obs-article" data-cat="macro">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_10.jpg" alt="Private equity, +30% nel 2025" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">M&amp;A &amp; ristrutturazioni</span>
-            <span class="obs-article-date">16 gen 2026</span>
-          </div>
-          <h3 class="obs-article-title">Private equity, +30% nel 2025. Registrate 551 operazioni.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Diritto e finanza, dati Osservatorio AIFI.</p>
-          <p class="obs-article-abstract">Anno record: 551 operazioni concluse contro le 419 del 2024. Operatori esteri al 59% del mercato. Picco a dicembre con 60 deal. Si profila un ruolo crescente del PE nell'aggregazione settoriale e nella ristrutturazione delle imprese italiane.</p>
-        </div>
-      </article>
-
-      <!-- 08 — Transazione fiscale — 15 gen 2026 -->
-      <article class="obs-article" data-cat="fiscale">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_11.jpg" alt="Crisi d'impresa, transazione fiscale: l'assetto è da affinare" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Transazione fiscale</span>
-            <span class="obs-article-date">15 gen 2026</span>
-          </div>
-          <h3 class="obs-article-title">Transazione fiscale: pochi i casi di conclusione positiva, l'assetto è da affinare.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Giustizia e società.</p>
-          <p class="obs-article-abstract">A oltre un anno dall'introduzione, il bilancio applicativo è in chiaroscuro. Cambio di paradigma necessario: la transazione fiscale come investimento dell'Erario sulla continuità, non come mera concessione. Approccio sempre più dinamico-prospettico delle Direzioni Regionali.</p>
-        </div>
-      </article>
-
-      <!-- 09 — DURC sbloccato — 30 dic 2025 -->
-      <article class="obs-article" data-cat="cnc">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_12.jpg" alt="Crisi d'impresa, Durc sbloccato. Tribunale di Ivrea." loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Composizione negoziata</span>
-            <span class="obs-article-date">30 dic 2025</span>
-          </div>
-          <h3 class="obs-article-title">Crisi d'impresa, Durc sbloccato. Rilascio anche con debiti contributivi nel rientro.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Giustizia e società. Tribunale di Ivrea, 24 dicembre 2025.</p>
-          <p class="obs-article-abstract">Il Tribunale di Ivrea apre alla misura cautelare atipica per il rilascio del DURC nell'ambito della composizione negoziata. Distinzione netta tra ordine diretto all'INPS (inammissibile) e accertamento interinale dei presupposti (ammissibile). Tutela operativa della continuità aziendale.</p>
-        </div>
-      </article>
-
-      <!-- 10 — Tasso interesse legale 1,60% — 16 dic 2025 -->
-      <article class="obs-article" data-cat="procedure">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_13.jpg" alt="Tasso d'interesse legale 1,60%" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Fiscalità &amp; ravvedimento</span>
-            <span class="obs-article-date">16 dic 2025</span>
-          </div>
-          <h3 class="obs-article-title">Tasso d'interesse legale 1,60%. Diventa meno caro il ravvedimento operoso.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Decreto MEF, GU 13 dic 2025.</p>
-          <p class="obs-article-abstract">Riduzione dal 2,00% all'1,60% in vigore dal 1° gennaio 2026. Effetti immediati sul ravvedimento operoso, sui risarcimenti del danno e sugli interessi tributari. Maggiore appetibilità della regolarizzazione spontanea per il contribuente.</p>
-        </div>
-      </article>
-
-      <!-- 11 — Cnc, un'impresa su 5 — ottobre 2025 -->
-      <article class="obs-article" data-cat="cnc">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_14.jpg" alt="Cnc, un'impresa su cinque ce la fa" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Composizione negoziata</span>
-            <span class="obs-article-date">ott 2025</span>
-          </div>
-          <h3 class="obs-article-title">Cnc, un'impresa su cinque ce la fa.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Bilancio dei primi quattro anni.</p>
-          <p class="obs-article-abstract">Al 1° ottobre 2025: 3.400 composizioni negoziate, 402 con esito positivo (20%). 22.200 addetti coinvolti. La CNC funziona su imprese medio-grandi; per le microimprese servono correttivi all'art. 25 undecies e una rateizzazione automatica con soglie più realistiche.</p>
-        </div>
-      </article>
-
-      <!-- 12 — Private equity nella CNC — 22 ago 2025 -->
-      <article class="obs-article" data-cat="cnc">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi</span>
-          <img src="images/img_15.jpg" alt="Il private equity nella Cnc: la composizione negoziata seduce" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Composizione negoziata</span>
-            <span class="obs-article-date">22 ago 2025</span>
-          </div>
-          <h3 class="obs-article-title">Il private equity nella Cnc. La composizione negoziata seduce.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Crisi d'impresa, +80% di operazioni gestite dai fondi.</p>
-          <p class="obs-article-abstract">Il PE entra stabilmente nella composizione negoziata: art. 22 CCII come leva per nuova finanza prededucibile, capitale protetto, schemi di acquisizione strutturati. La CNC come piattaforma di investimento, non più solo strumento di gestione della crisi.</p>
-        </div>
-      </article>
-
-      <!-- 13 — Passaggio generazionale — 7 apr 2026 -->
-      <article class="obs-article" data-cat="continuita">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi7</span>
-          <img src="images/img_16.jpg" alt="Di padre in figlio: come prepararsi" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Continuità aziendale</span>
-            <span class="obs-article-date">7 apr 2026</span>
-          </div>
-          <h3 class="obs-article-title">Di padre in figlio: come prepararsi. Nei passaggi generazionali la pianificazione diventa vitale.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi7</strong> — Impresa, dati Osservatorio AUB.</p>
-          <p class="obs-article-abstract">Tra il 2025 e il 2034, il 33,5% delle imprese familiari sopra 20 mln di ricavi sarà interessato da un passaggio generazionale (fino al 48,8% con best practice di governance). Pianificazione strutturata come fattore decisivo di continuità.</p>
-        </div>
-      </article>
-
-      <!-- 14 — Deficit/PIL — 25 apr 2026 -->
-      <article class="obs-article" data-cat="macro">
-        <div class="obs-article-clip">
-          <span class="obs-article-badge">ItaliaOggi — Primo Piano</span>
-          <img src="images/img_17.jpg" alt="Ridotto il rosso dall'8,1 al 3,1%" loading="lazy">
-        </div>
-        <div class="obs-article-body">
-          <div class="obs-article-meta">
-            <span class="obs-article-cat">Scenario macro</span>
-            <span class="obs-article-date">25 apr 2026</span>
-          </div>
-          <h3 class="obs-article-title">Ridotto il rosso dall'8,1 al 3,1%. Stupisce non solo la discesa, ma la sua velocità.</h3>
-          <p class="obs-article-source"><strong>ItaliaOggi</strong> — Primo Piano, Banca d'Italia &amp; Eurostat.</p>
-          <p class="obs-article-abstract">In tre anni l'Italia ha quasi dimezzato il rapporto deficit/PIL (da 8,1% a 3,1%). Riduzione guidata dal ridimensionamento dei contributi in conto capitale legati al Superbonus. Percorso solido ma con incognita interessi sul debito pubblico.</p>
-        </div>
-      </article>
-
-    </div>
   </div>
 </section>
 
-<!-- ============================================
-     CAPITOLO 02 — PUBBLICAZIONI SCIENTIFICHE
-     ============================================ -->
-<section class="obs-science">
-  <div class="container">
-    <div class="obs-chapter-head reveal">
-      <div class="obs-chapter-num">02</div>
-      <div class="obs-chapter-meta">
-        <div class="obs-chapter-label">Capitolo secondo — Contributi scientifici</div>
-        <h2 class="obs-chapter-title">Paper, commenti<br>e <em>analisi accademiche</em>.</h2>
-        <p class="obs-chapter-desc">Contributi a riviste giuridiche specialistiche e paper d'analisi pubblicati su <em>IUS Lefebvre Giuffrè</em>. Commenti a sentenze rilevanti del Codice della Crisi, analisi macro-quantitative dell'insolvenza, approfondimenti dottrinali su singoli istituti.</p>
-      </div>
-    </div>
-
-    <div class="obs-papers reveal">
-
-      <!-- Paper 01 — DURC IUS Lefebvre -->
-      <article class="obs-paper">
-        <div class="obs-paper-num">01</div>
-        <div class="obs-paper-body">
-          <div class="obs-paper-meta">
-            <span class="obs-paper-source">IUS Lefebvre Giuffrè</span>
-            <span>Marzo 2026</span>
-            <span class="obs-paper-tag">Commento a sentenza</span>
-          </div>
-          <h3 class="obs-paper-title">Composizione negoziata della crisi e DURC: misure cautelari atipiche e continuità aziendale.</h3>
-          <p class="obs-paper-abstract">Verso un'interpretazione sistematica e funzionale delle misure cautelari ex art. 19 CCII. Il provvedimento del Tribunale di Ivrea del 24 dicembre 2025 affronta in modo articolato la concedibilità di misure cautelari atipiche funzionali al rilascio del DURC, valorizzando la continuità aziendale come bene giuridico primario e chiarendo il discrimine tra ordine di facere e accertamento interinale.</p>
-          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
-        </div>
-        <div class="obs-paper-action">
-          <a href="documents/doc_01.pdf" download="2026-composizione-negoziata-durc-ius-lefebvre.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-            <span>Scarica PDF</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Paper 02 — Concordato minore Locri -->
-      <article class="obs-paper">
-        <div class="obs-paper-num">02</div>
-        <div class="obs-paper-body">
-          <div class="obs-paper-meta">
-            <span class="obs-paper-source">Insolvency Observatory</span>
-            <span>Luglio 2025</span>
-            <span class="obs-paper-tag">Commento a sentenza</span>
-          </div>
-          <h3 class="obs-paper-title">Il Concordato Minore del professionista sovraindebitato: profili di continuità, cram down pubblico e dignità del debitore.</h3>
-          <p class="obs-paper-abstract">Analisi della sentenza del Tribunale di Locri n. 14/2025, prima omologa di un concordato minore proposto da un professionista sovraindebitato. Il contributo affronta l'inapplicabilità dei requisiti dimensionali ex art. 77 CCII al non-imprenditore, il principio del fabbisogno dignitoso ex art. 47 CCII e la portata applicativa del cram down fiscale e previdenziale ex art. 80, co. 3, CCII.</p>
-          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
-        </div>
-        <div class="obs-paper-action">
-          <a href="documents/doc_02.pdf" download="2025-concordato-minore-locri.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-            <span>Scarica PDF</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Paper 03 — Macro insolvency 2024-2026 -->
-      <article class="obs-paper">
-        <div class="obs-paper-num">03</div>
-        <div class="obs-paper-body">
-          <div class="obs-paper-meta">
-            <span class="obs-paper-source">Insolvency Observatory</span>
-            <span>Luglio 2025</span>
-            <span class="obs-paper-tag">Paper macroeconomico</span>
-          </div>
-          <h3 class="obs-paper-title">Macroeconomic Analysis of Corporate Insolvency Trends (2024–2026).</h3>
-          <p class="obs-paper-abstract">Studio quantitativo sulle prospettive di insolvenza in Italia e nel contesto globale. Quasi 30.000 imprese a rischio insolvenza nel biennio. Costruzione +62%, manifatturiero +58%, retail +50%. Impatto sul mercato del lavoro: 2,3 milioni di posti di lavoro a rischio diretto nel 2025. Analisi degli scenari per le PMI italiane.</p>
-          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
-        </div>
-        <div class="obs-paper-action">
-          <a href="documents/doc_03.pdf" download="2025-insolvency-trends-2024-2026.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-            <span>Download paper</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Paper 04 — Composizione negoziata analisi territoriale -->
-      <article class="obs-paper">
-        <div class="obs-paper-num">04</div>
-        <div class="obs-paper-body">
-          <div class="obs-paper-meta">
-            <span class="obs-paper-source">Insolvency Observatory</span>
-            <span>Agosto 2025</span>
-            <span class="obs-paper-tag">Analisi territoriale</span>
-          </div>
-          <h3 class="obs-paper-title">La Composizione Negoziata della Crisi: analisi nazionale e regionale 2023 – I semestre 2025.</h3>
-          <p class="obs-paper-abstract">Studio quantitativo della diffusione della composizione negoziata, con focus sulla Regione Lombardia e sulla Camera di Commercio di Milano. Sui dati Unioncamere: identikit delle imprese coinvolte, distribuzione per forma giuridica e settore, fatturato delle imprese residuate. Trend, criticità e prospettive applicative.</p>
-          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
-        </div>
-        <div class="obs-paper-action">
-          <a href="documents/doc_04.pdf" download="2025-composizione-negoziata-analisi-nazionale-regionale.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-            <span>Scarica PDF</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- Paper 05 — Cassazione SS.UU. 3625/2025 -->
-      <article class="obs-paper">
-        <div class="obs-paper-num">05</div>
-        <div class="obs-paper-body">
-          <div class="obs-paper-meta">
-            <span class="obs-paper-source">Insolvency Observatory</span>
-            <span>Febbraio 2025</span>
-            <span class="obs-paper-tag">Cassazione SS.UU.</span>
-          </div>
-          <h3 class="obs-paper-title">Former shareholders are not liable for the tax debts of a dissolved company.</h3>
-          <p class="obs-paper-abstract">Commento alla pronuncia delle Sezioni Unite della Cassazione n. 3625/2025: gli ex soci non rispondono automaticamente dei debiti fiscali della società estinta. Onere probatorio in capo all'Agenzia delle Entrate sulla concreta percezione di somme dal riparto. Impatto sulla certezza del diritto nei rapporti tra imprese e fisco.</p>
-          <p class="obs-paper-author">— Francesco Sbraletta, Insolvency Observatory</p>
-        </div>
-        <div class="obs-paper-action">
-          <a href="documents/doc_05.pdf" download="2025-cassazione-3625-soci-debiti-fiscali.pdf" class="obs-paper-pdf" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-            <span>Download paper</span>
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- Closing -->
-<section class="obs-closing">
-  <div class="container">
-    <p class="obs-closing-quote reveal">
-      «Studiare la crisi è il presupposto per <em>governarla</em>. Pubblicare quello che studiamo è il presupposto per <em>essere scelti</em>.»
-    </p>
-    <p class="obs-closing-attr reveal">— Martinelli, Crisi d'Impresa</p>
-    <a href="#" class="open-consulenza" class="btn btn-primary obs-closing-cta" data-page="home">Parliamone insieme <span class="btn-arrow">→</span></a>
-  </div>
-</section>
-
-</section>
-<!-- /OSSERVATORIO -->
-
-<!-- ============================================
-     LAVORA CON NOI
-     ============================================ -->
 </section>
 </main>
 
