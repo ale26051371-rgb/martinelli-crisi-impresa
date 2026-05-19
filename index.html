@@ -3043,9 +3043,13 @@ body::before {
 }
 .why-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 100px;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
   align-items: start;
+}
+.why-sticky {
+  position: sticky;
+  top: 130px;
 }
 .why-title {
   font-family: var(--serif);
@@ -5901,6 +5905,7 @@ body::before {
   .cases-grid-home, .cases-grid { grid-template-columns: 1fr; }
   .cases-big-numbers { grid-template-columns: 1fr; gap: 40px; }
   
+  .why-sticky { position: static; }
   .why-item { grid-template-columns: 40px 1fr; gap: 20px; }
   .why-num { font-size: 28px; }
   .why-item h3 { font-size: 21px; }
@@ -8128,10 +8133,10 @@ if (!sessionStorage.getItem('page-transition-active')) {
 <section class="why">
   <div class="container">
     <div class="why-grid">
-      <div class="reveal">
+      <aside class="why-sticky reveal">
         <div class="section-label">Perché Martinelli</div>
         <h2 class="why-title">Quattro motivi<br>per <em>sceglierci</em>.</h2>
-      </div>
+      </aside>
       <div class="why-list reveal-stagger">
         <div class="why-item">
           <div class="why-num">i.</div>
@@ -8157,8 +8162,8 @@ if (!sessionStorage.getItem('page-transition-active')) {
         <div class="why-item">
           <div class="why-num">iv.</div>
           <div>
-            <h3>Riconoscimento dei tribunali italiani.</h3>
-            <p>I tribunali di tutta Italia hanno omologato i nostri piani con un tasso di accettazione del 96%. È un segno concreto della qualità del lavoro e della solidità delle strategie proposte.</p>
+            <h3>Track record nei tribunali italiani.</h3>
+            <p>I nostri piani di ristrutturazione vengono regolarmente omologati dai tribunali di tutta Italia. La preparazione tecnica e la solidità delle strategie proposte sono il miglior biglietto da visita.</p>
           </div>
         </div>
       </div>
