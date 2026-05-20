@@ -7163,6 +7163,15 @@ a.contact-page-info-value:hover { color: var(--champagne); }
 }
 
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18160728288"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18160728288');
+</script>
 </head>
 <body>
 
@@ -8006,10 +8015,7 @@ function initContactForm() {
     })
     .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
     .then(function() {
-      form.style.display = 'none';
-      success.classList.add('show');
-      if (window.lenis) window.lenis.scrollTo(success, { duration: 1.2, offset: -150 });
-      else success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      window.location.href = 'grazie.html';
     })
     .catch(function() {
       alert('Si è verificato un errore. Riprova o scrivici a martinelli.crisi@gmail.com');

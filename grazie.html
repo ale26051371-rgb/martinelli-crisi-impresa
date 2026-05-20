@@ -8,19 +8,19 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-<title>Soluzioni | Martinelli — Crisi d'Impresa</title>
-<meta name="description" content="Composizione negoziata, transazione fiscale, accordi bancari, piani di risanamento e sovraindebitamento. Gli strumenti del Codice della Crisi.">
+<title>Grazie | Martinelli — Crisi d'Impresa</title>
+<meta name="description" content="Richiesta ricevuta. Un partner dello studio ti contatterà entro 24 ore per fissare il colloquio preliminare.">
 
 <!-- Canonical & Open Graph -->
-<link rel="canonical" href="https://www.crisidimpresa-martinelli.com/soluzioni.html">
+<link rel="canonical" href="https://www.crisidimpresa-martinelli.com/grazie.html">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.crisidimpresa-martinelli.com/soluzioni.html">
-<meta property="og:title" content="Soluzioni | Martinelli — Crisi d'Impresa">
-<meta property="og:description" content="Composizione negoziata, transazione fiscale, accordi bancari, piani di risanamento e sovraindebitamento. Gli strumenti del Codice della Crisi.">
+<meta property="og:url" content="https://www.crisidimpresa-martinelli.com/grazie.html">
+<meta property="og:title" content="Grazie | Martinelli — Crisi d'Impresa">
+<meta property="og:description" content="Richiesta ricevuta. Un partner ti contatterà entro 24 ore.">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Soluzioni | Martinelli — Crisi d'Impresa">
-<meta name="twitter:description" content="Composizione negoziata, transazione fiscale, accordi bancari, piani di risanamento e sovraindebitamento. Gli strumenti del Codice della Crisi.">
+<meta name="twitter:title" content="Grazie | Martinelli — Crisi d'Impresa">
+<meta name="twitter:description" content="Richiesta ricevuta. Un partner ti contatterà entro 24 ore.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -6987,6 +6987,300 @@ body::before {
 /* === MULTI-PAGE: page always visible === */
 .page { display: block; animation: pageEnter 0.5s var(--ease-out); }
 
+
+/* ============================================
+   CONTATTI PAGE
+   ============================================ */
+.contact-page-hero {
+  background: var(--navy-deep);
+  color: var(--ivory);
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.contact-page-ornament {
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-page-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-page-title {
+  font-family: var(--serif);
+  font-weight: 320;
+  font-size: clamp(42px, 5.5vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  font-variation-settings: "opsz" 144;
+}
+.contact-page-title em {
+  font-family: var(--serif-italic);
+  color: var(--champagne);
+  font-weight: 400;
+  font-style: italic;
+}
+.contact-page-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(245, 241, 234, 0.72);
+  max-width: 480px;
+}
+.contact-page-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.contact-page-info-card {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--navy-line);
+}
+.contact-page-info-card:first-child { border-top: 1px solid var(--navy-line); }
+.contact-page-info-icon {
+  width: 42px; height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  border-radius: 50%;
+  color: var(--champagne);
+}
+.contact-page-info-icon svg { width: 18px; height: 18px; }
+.contact-page-info-label {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.contact-page-info-value {
+  font-family: var(--serif);
+  font-weight: 380;
+  font-size: 20px;
+  color: var(--ivory);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 72;
+  display: block;
+  margin-bottom: 4px;
+  transition: color 0.3s var(--ease);
+}
+a.contact-page-info-value:hover { color: var(--champagne); }
+.contact-page-info-note {
+  font-size: 13px;
+  color: rgba(245, 241, 234, 0.5);
+}
+/* FORM SECTION */
+.contact-page-form-section {
+  background: var(--navy-deep);
+  color: var(--ivory);
+  padding: 0 0 140px;
+}
+.contact-page-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: start;
+}
+.contact-page-form-title {
+  font-family: var(--serif);
+  font-weight: 320;
+  font-size: clamp(36px, 4vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  font-variation-settings: "opsz" 144;
+}
+.contact-page-form-title em {
+  font-family: var(--serif-italic);
+  color: var(--champagne);
+  font-weight: 400;
+  font-style: italic;
+}
+.contact-page-form-desc {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: rgba(245, 241, 234, 0.72);
+  max-width: 420px;
+  margin-bottom: 44px;
+}
+.contact-page-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.contact-page-feature {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--navy-line);
+}
+.contact-page-feature:last-child { border-bottom: 1px solid var(--navy-line); }
+.contact-page-feature-num {
+  font-family: var(--serif-italic);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--champagne);
+}
+.contact-page-feature-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--ivory);
+  margin-bottom: 3px;
+  font-variation-settings: "opsz" 72;
+}
+.contact-page-feature-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(245, 241, 234, 0.55);
+}
+
+@media (max-width: 1024px) {
+  .contact-page-hero-grid, .contact-page-form-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .contact-page-hero { padding: 140px 0 80px; }
+}
+@media (max-width: 640px) {
+  .contact-page-hero { padding: 120px 0 60px; }
+  .contact-page-form-section { padding-bottom: 100px; }
+  .contact-page-title { margin-bottom: 20px; }
+}
+
+
+/* ============================================
+   THANK YOU PAGE
+   ============================================ */
+.thankyou-hero {
+  background: var(--navy-deep);
+  color: var(--ivory);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.thankyou-ornament {
+  position: absolute;
+  top: -300px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.thankyou-content {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.thankyou-icon {
+  width: 64px; height: 64px;
+  margin: 0 auto 32px;
+}
+.thankyou-icon svg { width: 100%; height: 100%; }
+.thankyou-title {
+  font-family: var(--serif);
+  font-weight: 320;
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  font-variation-settings: "opsz" 144;
+}
+.thankyou-title em {
+  font-family: var(--serif-italic);
+  color: var(--champagne);
+  font-weight: 400;
+  font-style: italic;
+}
+.thankyou-desc {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(245, 241, 234, 0.72);
+  margin-bottom: 56px;
+}
+.thankyou-desc strong {
+  color: var(--ivory);
+  font-weight: 500;
+}
+.thankyou-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: 56px;
+  border-top: 1px solid var(--navy-line);
+  border-bottom: 1px solid var(--navy-line);
+}
+.thankyou-step {
+  padding: 32px 24px;
+  text-align: left;
+  border-right: 1px solid var(--navy-line);
+}
+.thankyou-step:last-child { border-right: none; }
+.thankyou-step-num {
+  font-family: var(--serif-italic);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--champagne);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+.thankyou-step-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 19px;
+  color: var(--ivory);
+  margin-bottom: 8px;
+  font-variation-settings: "opsz" 72;
+}
+.thankyou-step-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(245, 241, 234, 0.55);
+}
+.thankyou-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.thankyou-contact-alt {
+  font-size: 14px;
+  color: rgba(245, 241, 234, 0.5);
+}
+.thankyou-contact-alt a {
+  color: var(--champagne);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+.thankyou-contact-alt a:hover { opacity: 0.75; }
+
+@media (max-width: 800px) {
+  .thankyou-steps { grid-template-columns: 1fr; }
+  .thankyou-step { border-right: none; border-bottom: 1px solid var(--navy-line); padding: 24px 0; }
+  .thankyou-step:last-child { border-bottom: none; }
+  .thankyou-hero { padding: 120px 0 80px; }
+}
+
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -6997,6 +7291,7 @@ body::before {
   gtag('js', new Date());
   gtag('config', 'AW-18160728288');
 </script>
+<meta name="robots" content="noindex, nofollow">
 </head>
 <body>
 
@@ -7008,8 +7303,8 @@ body::before {
 <!-- Page transition overlay (visibile via CSS per prevenire flash) -->
 <div class="page-transition" id="pageTransition">
   <div class="transition-content">
-    <div class="transition-num" id="transitionNum">— 03 / 07 —</div>
-    <div class="transition-title" id="transitionTitle"><em>Soluzioni</em></div>
+    <div class="transition-num" id="transitionNum">— 08 / 08 —</div>
+    <div class="transition-title" id="transitionTitle"><em>Contatti</em></div>
     <div class="transition-line"></div>
   </div>
 </div>
@@ -7030,7 +7325,7 @@ if (!sessionStorage.getItem('page-transition-active')) {
   <ul class="nav-menu">
     <li><a href="index.html" data-page="home">Home</a></li>
     <li><a href="studio.html" data-page="studio">Studio</a></li>
-    <li><a href="soluzioni.html" data-page="soluzioni" class="active">Soluzioni</a></li>
+    <li><a href="soluzioni.html" data-page="soluzioni">Soluzioni</a></li>
     <li><a href="metodo.html" data-page="metodo">Metodo</a></li>
     <li><a href="casi.html" data-page="casi">Casi</a></li>
     <li><a href="osservatorio.html" data-page="osservatorio">Osservatorio</a></li>
@@ -7158,69 +7453,58 @@ if (!sessionStorage.getItem('page-transition-active')) {
 
 <!-- Page content -->
 <main class="app" id="app">
-<section class="page active" data-page="soluzioni" data-theme="dark">
+<section class="page active" data-page="grazie" data-theme="dark">
 
-<section class="sol-hero">
+<section class="thankyou-hero">
+  <div class="thankyou-ornament"></div>
   <div class="container">
-    <div class="section-label reveal" style="color: var(--stone-light);">Soluzioni <span class="section-label-num">— 03 / 07</span></div>
-    <h1 class="sol-hero-title reveal">Sei strumenti.<br>Una <em>strategia</em>.</h1>
-    <p class="sol-hero-sub reveal">Il Codice della Crisi d'Impresa offre strumenti potenti ma complessi. Per ogni situazione scegliamo quello più efficace — spesso in combinazione — per proteggere patrimonio, continuità e reputazione.</p>
+    <div class="thankyou-content reveal">
+      <div class="thankyou-icon">
+        <svg viewBox="0 0 64 64" fill="none" stroke="var(--champagne)" stroke-width="2">
+          <circle cx="32" cy="32" r="30" opacity="0.2"/>
+          <path d="M20 33l8 8 16-18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="section-label" style="color: var(--stone-light); justify-content: center;">Richiesta ricevuta</div>
+      <h1 class="thankyou-title">Grazie per averci<br><em>contattato</em>.</h1>
+      <p class="thankyou-desc">Un partner dello studio ti contatterà personalmente entro <strong>24 ore lavorative</strong> per fissare il colloquio preliminare riservato.</p>
+      
+      <div class="thankyou-steps">
+        <div class="thankyou-step">
+          <div class="thankyou-step-num">01</div>
+          <div>
+            <div class="thankyou-step-title">Ricezione</div>
+            <div class="thankyou-step-desc">La tua richiesta è stata registrata nel nostro sistema riservato.</div>
+          </div>
+        </div>
+        <div class="thankyou-step">
+          <div class="thankyou-step-num">02</div>
+          <div>
+            <div class="thankyou-step-title">Analisi preliminare</div>
+            <div class="thankyou-step-desc">Un partner esaminerà la tua situazione prima di contattarti.</div>
+          </div>
+        </div>
+        <div class="thankyou-step">
+          <div class="thankyou-step-num">03</div>
+          <div>
+            <div class="thankyou-step-title">Colloquio riservato</div>
+            <div class="thankyou-step-desc">Ti chiameremo per fissare un incontro — senza impegno, massima discrezione.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="thankyou-actions">
+        <a href="index.html" class="btn btn-primary" data-page="home">Torna alla homepage <span class="btn-arrow">&rarr;</span></a>
+        <a href="faq.html" class="btn btn-ghost light" data-page="faq" style="color: var(--ivory); border-color: rgba(245,241,234,0.25);">Leggi le FAQ <span class="btn-arrow">&rarr;</span></a>
+      </div>
+
+      <div class="thankyou-contact-alt">
+        <p>Preferisci parlare subito? Chiamaci al <a href="tel:+393297575459">+39 329 757 5459</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="solutions-list">
-  <div class="solution-row">
-    <div class="solution-row-num">I</div>
-    <div><h3 class="solution-row-title">Composizione negoziata</h3></div>
-    <p class="solution-row-desc">Procedura volontaria e riservata: sospensione dei pagamenti, trattativa con i creditori assistita da un esperto indipendente.</p>
-    <div class="solution-row-arrow">→</div>
-  </div>
-  <div class="solution-row">
-    <div class="solution-row-num">II</div>
-    <div><h3 class="solution-row-title">Transazione fiscale</h3></div>
-    <p class="solution-row-desc">Riduzione e dilazione del debito tributario e contributivo, anche con cartelle significative o contenzioso in corso.</p>
-    <div class="solution-row-arrow">→</div>
-  </div>
-  <div class="solution-row">
-    <div class="solution-row-num">III</div>
-    <div><h3 class="solution-row-title">Accordi con banche</h3></div>
-    <p class="solution-row-desc">Moratorie, rimodulazione piani di ammortamento, saldi a stralcio, negoziazione con servicer NPL e UTP.</p>
-    <div class="solution-row-arrow">→</div>
-  </div>
-  <div class="solution-row">
-    <div class="solution-row-num">IV</div>
-    <div><h3 class="solution-row-title">Accordi con fornitori</h3></div>
-    <p class="solution-row-desc">Ristrutturazione del debito commerciale con rispetto degli equilibri di filiera e tutela delle relazioni strategiche.</p>
-    <div class="solution-row-arrow">→</div>
-  </div>
-  <div class="solution-row">
-    <div class="solution-row-num">V</div>
-    <div><h3 class="solution-row-title">Piani di risanamento</h3></div>
-    <p class="solution-row-desc">Piani attestati ex art. 56 CCII e accordi di ristrutturazione: strumenti giudiziali e stragiudiziali con omologazione.</p>
-    <div class="solution-row-arrow">→</div>
-  </div>
-  <div class="solution-row">
-    <div class="solution-row-num">VI</div>
-    <div><h3 class="solution-row-title">Sovraindebitamento</h3></div>
-    <p class="solution-row-desc">Concordato minore, ristrutturazione del consumatore, esdebitazione del soggetto incapiente.</p>
-    <div class="solution-row-arrow">→</div>
-  </div>
-</section>
-
-<section class="cta-block" style="background: var(--navy-deep); color: var(--ivory);">
-  <div class="container reveal">
-    <h2 class="cta-title" style="color: var(--ivory);">Non sai <em>quale scegliere</em>?</h2>
-    <p class="cta-sub" style="color: rgba(245,241,234,0.72);">Dopo l'analisi del dossier indichiamo lo strumento — o la combinazione di strumenti — più efficace per la tua situazione specifica.</p>
-    <a href="#" class="btn btn-primary open-consulenza" >Parliamone insieme <span class="btn-arrow">→</span></a>
-  </div>
-</section>
-
-</section>
-<!-- /SOLUZIONI -->
-
-<!-- ==========================================
-     METODO PAGE
-     ========================================== -->
 </section>
 </main>
 
