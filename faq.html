@@ -7260,7 +7260,7 @@ if (!sessionStorage.getItem('page-transition-active')) {
   <div class="container reveal">
     <h2 class="cta-title">Non hai trovato<br>la <em>tua domanda</em>?</h2>
     <p class="cta-sub">Scrivici la situazione: rispondiamo entro 24 ore in modo riservato, senza impegno.</p>
-    <a href="#" class="open-consulenza" class="btn btn-primary" data-page="home">Fai la tua domanda <span class="btn-arrow">→</span></a>
+    <a href="#" class="btn btn-primary open-consulenza" >Fai la tua domanda <span class="btn-arrow">→</span></a>
   </div>
 </section>
 
@@ -9176,6 +9176,7 @@ const PAGE_META = {
   'casi.html':         { num: '05', title: 'Casi' },
   'osservatorio.html': { num: '06', title: 'Osservatorio' },
   'faq.html':          { num: '07', title: 'FAQ' },
+  'contatti.html':     { num: '08', title: 'Contatti' },
 };
 
 let isNavigating = false;
@@ -9197,11 +9198,11 @@ function navigateToPage(href) {
   // Popola titolo della pagina DI DESTINAZIONE
   const tNum = document.getElementById('transitionNum');
   const tTitle = document.getElementById('transitionTitle');
-  if (tNum) tNum.textContent = '— ' + meta.num + ' / 07 —';
+  if (tNum) tNum.textContent = '— ' + meta.num + ' / 08 —';
   if (tTitle) tTitle.innerHTML = '<em>' + meta.title + '</em>';
 
   // Salva in sessionStorage per la pagina di arrivo
-  sessionStorage.setItem('transition-num', '— ' + meta.num + ' / 07 —');
+  sessionStorage.setItem('transition-num', '— ' + meta.num + ' / 08 —');
   sessionStorage.setItem('transition-title', '<em>' + meta.title + '</em>');
 
   const content = overlay.querySelector('.transition-content');

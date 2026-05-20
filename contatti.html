@@ -7174,7 +7174,7 @@ a.contact-page-info-value:hover { color: var(--champagne); }
 <!-- Page transition overlay (visibile via CSS per prevenire flash) -->
 <div class="page-transition" id="pageTransition">
   <div class="transition-content">
-    <div class="transition-num" id="transitionNum">— Contatti —</div>
+    <div class="transition-num" id="transitionNum">— 08 / 08 —</div>
     <div class="transition-title" id="transitionTitle"><em>Contatti</em></div>
     <div class="transition-line"></div>
   </div>
@@ -9371,6 +9371,7 @@ const PAGE_META = {
   'casi.html':         { num: '05', title: 'Casi' },
   'osservatorio.html': { num: '06', title: 'Osservatorio' },
   'faq.html':          { num: '07', title: 'FAQ' },
+  'contatti.html':     { num: '08', title: 'Contatti' },
 };
 
 let isNavigating = false;
@@ -9392,11 +9393,11 @@ function navigateToPage(href) {
   // Popola titolo della pagina DI DESTINAZIONE
   const tNum = document.getElementById('transitionNum');
   const tTitle = document.getElementById('transitionTitle');
-  if (tNum) tNum.textContent = '— ' + meta.num + ' / 07 —';
+  if (tNum) tNum.textContent = '— ' + meta.num + ' / 08 —';
   if (tTitle) tTitle.innerHTML = '<em>' + meta.title + '</em>';
 
   // Salva in sessionStorage per la pagina di arrivo
-  sessionStorage.setItem('transition-num', '— ' + meta.num + ' / 07 —');
+  sessionStorage.setItem('transition-num', '— ' + meta.num + ' / 08 —');
   sessionStorage.setItem('transition-title', '<em>' + meta.title + '</em>');
 
   const content = overlay.querySelector('.transition-content');
