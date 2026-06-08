@@ -6593,6 +6593,26 @@ body::before {
   font-weight: 600;
   z-index: 2;
 }
+/* Online article clip (no newspaper image) */
+.obs-article-clip.obs-clip-web {
+  background: var(--navy-deep);
+}
+.obs-clip-web-label {
+  color: rgba(245, 241, 234, 0.12);
+  font-family: var(--serif-display);
+  font-size: 28px;
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+}
+.obs-clip-web-label em {
+  font-family: var(--serif-italic);
+  color: rgba(201, 169, 97, 0.18);
+}
+.obs-article:hover .obs-article-clip.obs-clip-web { background: var(--navy-soft); }
+
 .obs-article.obs-article-featured .obs-article-clip {
   border-color: var(--champagne);
   box-shadow: 0 1px 0 var(--champagne) inset;
@@ -7195,6 +7215,9 @@ if (!sessionStorage.getItem('page-transition-active')) {
       <span class="obs-press-logo">Italia<em>Oggi</em></span>
       <span class="obs-press-logo">Italia<em>Oggi7</em></span>
       <span class="obs-press-logo">Capital<small>Class Editori</small></span>
+      <span class="obs-press-logo">Top<em>Legal</em></span>
+      <span class="obs-press-logo">Finance<em>Community</em></span>
+      <span class="obs-press-logo">Finanza<em>Flash</em></span>
       <span class="obs-press-logo"><em>IUS</em> Lefebvre Giuffrè</span>
       <span class="obs-press-logo">Insolvency Observatory<small>University</small></span>
     </div>
@@ -7211,21 +7234,106 @@ if (!sessionStorage.getItem('page-transition-active')) {
       <div class="obs-chapter-meta">
         <div class="obs-chapter-label">Capitolo primo — Rassegna stampa</div>
         <h2 class="obs-chapter-title">Articoli sui<br><em>quotidiani nazionali</em>.</h2>
-        <p class="obs-chapter-desc">Sedici contributi pubblicati negli ultimi mesi su <em>ItaliaOggi</em>, <em>ItaliaOggi7</em> e nella sezione <em>Capital — Diritto &amp; Fisco</em>. Analisi dei dati Unioncamere e Cribis, commenti alle decisioni dei tribunali, monitoraggio della transazione fiscale e delle procedure concorsuali, scenari macro. Filtra per area tematica.</p>
+        <p class="obs-chapter-desc">Ventuno contributi pubblicati negli ultimi mesi su <em>ItaliaOggi</em>, <em>ItaliaOggi7</em>, <em>Capital — Diritto &amp; Fisco</em>, <em>TopLegal</em>, <em>FinanceCommunity</em> e <em>Finanza Flash</em>. Analisi dei dati Unioncamere e Cribis, commenti alle decisioni dei tribunali, monitoraggio della transazione fiscale e delle procedure concorsuali, scenari macro. Filtra per area tematica.</p>
       </div>
     </div>
 
     <div class="obs-filters reveal" id="obsFilters">
-      <button class="obs-filter active" data-filter="all">Tutti <span class="obs-filter-count">16</span></button>
-      <button class="obs-filter" data-filter="cnc">Composizione negoziata <span class="obs-filter-count">3</span></button>
+      <button class="obs-filter active" data-filter="all">Tutti <span class="obs-filter-count">21</span></button>
+      <button class="obs-filter" data-filter="cnc">Composizione negoziata <span class="obs-filter-count">7</span></button>
       <button class="obs-filter" data-filter="fiscale">Transazione fiscale <span class="obs-filter-count">3</span></button>
       <button class="obs-filter" data-filter="npl">Crediti deteriorati &amp; NPL <span class="obs-filter-count">2</span></button>
-      <button class="obs-filter" data-filter="procedure">Procedure &amp; normativa <span class="obs-filter-count">4</span></button>
+      <button class="obs-filter" data-filter="procedure">Procedure &amp; normativa <span class="obs-filter-count">5</span></button>
       <button class="obs-filter" data-filter="continuita">Continuità &amp; passaggio gen. <span class="obs-filter-count">1</span></button>
       <button class="obs-filter" data-filter="macro">Scenario macro <span class="obs-filter-count">3</span></button>
     </div>
 
     <div class="obs-press-grid" id="obsPressGrid">
+
+      <!-- TopLegal — Proroga misure protettive, DURC e DURF — 4 giugno 2026 -->
+      <article class="obs-article" data-cat="cnc">
+        <div class="obs-article-clip obs-clip-web">
+          <span class="obs-article-badge">TopLegal</span>
+          <span class="obs-clip-web-label">Top<em>Legal</em></span>
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Composizione negoziata</span>
+            <span class="obs-article-date">4 giu 2026</span>
+          </div>
+          <h3 class="obs-article-title">Martinelli ottiene uno dei primi provvedimenti in Italia che concede congiuntamente proroga delle misure protettive, DURC e DURF.</h3>
+          <p class="obs-article-source"><strong>TopLegal</strong> — Operazioni e contenziosi.</p>
+          <p class="obs-article-abstract">Il Tribunale di Ivrea dispone la proroga delle misure protettive e riconosce il mantenimento del DURC e del DURF per una società Telco in composizione negoziata. Un provvedimento che garantisce continuità aziendale, prosecuzione dei rapporti commerciali e regolarità fiscale per l'esecuzione delle commesse strategiche.</p>
+        </div>
+      </article>
+
+      <!-- ItaliaOggi7 — Blocco dei c/c, dal Ccii lo scudo — 1 giugno 2026 -->
+      <article class="obs-article" data-cat="cnc">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi7</span>
+          <img src="images/article_1giugno_blocco.jpg" alt="Blocco dei c/c, dal Ccii lo scudo — ItaliaOggi7 1 giugno 2026" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Composizione negoziata</span>
+            <span class="obs-article-date">1 giu 2026</span>
+          </div>
+          <h3 class="obs-article-title">Blocco dei c/c, dal Ccii lo scudo.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi7</strong> — La composizione negoziata a salvaguardia della continuità.</p>
+          <p class="obs-article-abstract">Entro fine 2026 attesi oltre 100 mila pignoramenti da AdER: la composizione negoziata è il principale presidio contro il blocco dei conti correnti. Attraverso il ricorso al tribunale, l'impresa può ottenere la sospensione delle azioni esecutive e cautelari, creando un perimetro di protezione temporaneo per tentare il risanamento e negoziare con l'Erario e gli altri creditori.</p>
+        </div>
+      </article>
+
+      <!-- FinanceCommunity — Gli advisor di Axitalia — giugno 2026 -->
+      <article class="obs-article" data-cat="cnc">
+        <div class="obs-article-clip obs-clip-web">
+          <span class="obs-article-badge">FinanceCommunity</span>
+          <span class="obs-clip-web-label">Finance<em>Community</em></span>
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Composizione negoziata</span>
+            <span class="obs-article-date">giu 2026</span>
+          </div>
+          <h3 class="obs-article-title">Gli advisor di Axitalia nella composizione negoziata della crisi.</h3>
+          <p class="obs-article-source"><strong>FinanceCommunity</strong> — Deal.</p>
+          <p class="obs-article-abstract">Il Tribunale di Ivrea ha prorogato le misure protettive per ulteriori 120 giorni e riconosciuto i presupposti per il rilascio di DURC e DURF fino al 2 agosto 2026. Il piano aggiornato prevede moratoria, adesione alla rottamazione quinquies, accordi con i creditori previdenziali e con i fornitori strategici.</p>
+        </div>
+      </article>
+
+      <!-- Finanza Flash — Proroga misure protettive, DURC e DURF — 26 maggio 2026 -->
+      <article class="obs-article" data-cat="cnc">
+        <div class="obs-article-clip obs-clip-web">
+          <span class="obs-article-badge">Finanza Flash</span>
+          <span class="obs-clip-web-label">Finanza<em>Flash</em></span>
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Composizione negoziata</span>
+            <span class="obs-article-date">26 mag 2026</span>
+          </div>
+          <h3 class="obs-article-title">Martinelli Crisi d'Impresa ottiene uno dei primi provvedimenti in Italia sulla proroga delle misure protettive, DURC e DURF.</h3>
+          <p class="obs-article-source"><strong>Finanza Flash</strong> — di Katherine Puce.</p>
+          <p class="obs-article-abstract">La Giudice Federica Lorenzatti del Tribunale di Ivrea riconosce la proroga delle misure protettive per Axitalia S.r.l. con mantenimento congiunto di DURC e DURF: elementi fondamentali per preservare la continuità operativa e l'accesso a commesse pubbliche nel settore Telco.</p>
+        </div>
+      </article>
+
+      <!-- ItaliaOggi7 — Crisi, l'Europa gioca d'anticipo — 25 maggio 2026 -->
+      <article class="obs-article" data-cat="procedure">
+        <div class="obs-article-clip">
+          <span class="obs-article-badge">ItaliaOggi7</span>
+          <img src="images/article_25maggio_europa.jpg" alt="Crisi, l'Europa gioca d'anticipo — ItaliaOggi7 25 maggio 2026" loading="lazy">
+        </div>
+        <div class="obs-article-body">
+          <div class="obs-article-meta">
+            <span class="obs-article-cat">Procedure &amp; normativa</span>
+            <span class="obs-article-date">25 mag 2026</span>
+          </div>
+          <h3 class="obs-article-title">Crisi, l'Europa gioca d'anticipo.</h3>
+          <p class="obs-article-source"><strong>ItaliaOggi7</strong> — La linea comune è: agire prima dell'insolvenza conclamata.</p>
+          <p class="obs-article-abstract">Un confronto tra i differenti modelli adottati dagli ordinamenti europei per il risanamento. Italia, Spagna, Francia, Germania, Regno Unito e Paesi Bassi: ogni ordinamento ha costruito un equilibrio diverso tra autonomia dell'imprenditore, ruolo del giudice, protezione del patrimonio. La composizione negoziata italiana, il Preconcurso spagnolo, il Mandat ad hoc francese, la StaRUG tedesca e il WHOA olandese a confronto.</p>
+        </div>
+      </article>
 
       <!-- 00 — IN PRIMO PIANO: Risanamento, 10 errori — 11 maggio 2026 -->
       <article class="obs-article obs-article-featured" data-cat="procedure">
